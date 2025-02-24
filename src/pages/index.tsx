@@ -80,6 +80,8 @@ const GermanyText = () => {
   
   return (
     <motion.div 
+      role="group"
+      aria-label="Theme switcher with German flag colors"
       style={{
         display: "inline-flex",
         width: "3em",
@@ -93,19 +95,25 @@ const GermanyText = () => {
       }}
       whileHover={{ opacity: 0.8 }}
     >
-      <motion.div 
+      <motion.button
+        aria-label="Switch to dark theme"
+        aria-pressed={theme === 'black'}
         style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.9)" }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setTheme('black')}
         className={theme === 'black' ? 'ring-1 ring-white/20' : ''}
       />
-      <motion.div 
+      <motion.button
+        aria-label="Switch to red theme"
+        aria-pressed={theme === 'red'}
         style={{ flex: 1, backgroundColor: "rgba(255, 0, 0, 0.9)" }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setTheme('red')}
         className={theme === 'red' ? 'ring-1 ring-white/20' : ''}
       />
-      <motion.div 
+      <motion.button
+        aria-label="Switch to gold theme"
+        aria-pressed={theme === 'gold'}
         style={{ flex: 1, backgroundColor: "rgba(255, 204, 0, 0.9)" }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setTheme('gold')}
@@ -147,24 +155,59 @@ export default function Home() {
       `}</style>
       <div className="min-h-screen theme-transition">
         <Head>
-          <title>Jan-Marlon Leibl • Software Developer</title>
-          <meta name="description" content="Welcome to the website of Jan-Marlon Leibl! As an aspiring software developer, I dive deep into the world of PHP and love to turn creative ideas into reality." />
-          <meta name="keywords" content="Software development, PHP, frontend development, projects, technology, Jan-Marlon Leibl" />
+          <title>Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          
+          {/* Primary Meta Tags */}
+          <meta name="title" content="Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert" />
+          <meta name="description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
+          <meta name="keywords" content="Software Development, PHP Developer, TypeScript, Fullstack Engineer, Web Development, System Architecture, MySQL, React, Performance Optimization" />
+          <meta name="author" content="Jan-Marlon Leibl" />
+          <meta name="robots" content="index, follow" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://jleibl.net/" />
+          <meta property="og:title" content="Jan-Marlon Leibl • Fullstack Software Developer" />
+          <meta property="og:description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
+          <meta property="og:image" content="https://jleibl.net/profile-image.jpg" />
+          <meta property="og:image:width" content="400" />
+          <meta property="og:image:height" content="400" />
+          <meta property="og:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content="https://jleibl.net/" />
+          <meta name="twitter:title" content="Jan-Marlon Leibl • Fullstack Software Developer" />
+          <meta name="twitter:description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
+          <meta name="twitter:image" content="https://jleibl.net/profile-image.jpg" />
+          <meta name="twitter:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
+
+          {/* Favicon */}
+          <link rel="icon" href="/profile-image.jpg" type="image/jpeg" />
+
+          {/* Canonical */}
+          <link rel="canonical" href="https://jleibl.net/" />
         </Head>
 
-        <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-black/20 border-b theme-border theme-transition">
-          <nav className="max-w-screen-xl mx-auto px-4 sm:px-8 py-4 sm:py-4 flex justify-between items-center font-['DM_Sans']">
-            <Link href="/" className="text-xl sm:text-xl font-medium tracking-tight theme-primary theme-transition">
+        <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-black/20 border-b theme-border theme-transition" role="banner">
+          <nav className="max-w-screen-xl mx-auto px-4 sm:px-8 py-4 sm:py-4 flex justify-between items-center font-['DM_Sans']" role="navigation" aria-label="Main navigation">
+            <Link href="/" className="text-xl sm:text-xl font-medium tracking-tight theme-primary theme-transition" aria-label="Home">
               JL
             </Link>
             <div className="flex items-center gap-6 sm:gap-12 text-base sm:text-base tracking-wide">
-              <a href="#work" className="theme-secondary hover:theme-primary theme-transition">
+              <a href="#work" className="theme-secondary hover:theme-primary theme-transition" aria-label="View my work">
                 Work
               </a>
-              <a href="#about" className="theme-secondary hover:theme-primary theme-transition">
+              <a href="#about" className="theme-secondary hover:theme-primary theme-transition" aria-label="About me">
                 About
               </a>
-              <a href="mailto:jleibl@proton.me" className="px-6 py-2.5 theme-accent theme-border hover:bg-white/[0.06] theme-transition">
+              <a 
+                href="mailto:jleibl@proton.me" 
+                className="px-6 py-2.5 theme-accent theme-border hover:bg-white/[0.06] theme-transition"
+                aria-label="Contact me via email"
+              >
                 Contact
               </a>
             </div>
@@ -268,11 +311,12 @@ export default function Home() {
               <div className="space-y-8 sm:space-y-8">
                 <FadeIn>
                   <div className="aspect-square bg-gradient-to-tr from-white/[0.05] to-white/[0.02] rounded-2xl overflow-hidden border border-white/[0.05] hover:border-white/10 transition-colors">
-                  <Image
+                    <Image
                       src="/profile-image.jpg"
-                      alt="Jan-Marlon Leibl"
+                      alt="Jan-Marlon Leibl - Fullstack Software Developer"
                       width={400}
                       height={400}
+                      priority
                       className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -449,7 +493,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="mt-32 sm:mt-32 bg-gradient-to-b from-white/[0.02] via-white/[0.03] to-white/[0.02] border-t border-white/[0.05]">
+        <footer role="contentinfo" className="mt-32 sm:mt-32 bg-gradient-to-b from-white/[0.02] via-white/[0.03] to-white/[0.02] border-t border-white/[0.05]">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-8 py-32 sm:py-32">
             <div className="grid gap-20 sm:gap-24">
               <FadeIn>
