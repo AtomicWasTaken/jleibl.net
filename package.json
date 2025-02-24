@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/dm-sans": "^5.1.1",
+    "@fontsource/instrument-sans": "^5.1.1",
+    "@studio-freight/lenis": "^1.0.42",
+    "framer-motion": "^12.4.7",
+    "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.7"
+    "react-intersection-observer": "^9.15.1"
   },
   "devDependencies": {
     "typescript": "^5",
