@@ -98,7 +98,7 @@ const GermanyText = () => {
       <motion.button
         aria-label="Switch to dark theme"
         aria-pressed={theme === 'black'}
-        style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.9)" }}
+        style={{ flex: 1, backgroundColor: "rgba(0, 0, 0)", borderLeft: "2px solid rgba(255, 255, 255, 0.1)", borderTop: "2px solid rgba(255, 255, 255, 0.1)", borderBottom: "2px solid rgba(255, 255, 255, 0.1)" }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setTheme('black')}
         className={theme === 'black' ? 'ring-1 ring-white/20' : ''}
@@ -106,7 +106,7 @@ const GermanyText = () => {
       <motion.button
         aria-label="Switch to red theme"
         aria-pressed={theme === 'red'}
-        style={{ flex: 1, backgroundColor: "rgba(255, 0, 0, 0.9)" }}
+        style={{ flex: 1, backgroundColor: "rgba(255, 0, 0)" }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setTheme('red')}
         className={theme === 'red' ? 'ring-1 ring-white/20' : ''}
@@ -114,7 +114,7 @@ const GermanyText = () => {
       <motion.button
         aria-label="Switch to gold theme"
         aria-pressed={theme === 'gold'}
-        style={{ flex: 1, backgroundColor: "rgba(255, 204, 0, 0.9)" }}
+        style={{ flex: 1, backgroundColor: "rgba(255, 204, 0)" }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setTheme('gold')}
         className={theme === 'gold' ? 'ring-1 ring-white/20' : ''}
