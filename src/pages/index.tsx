@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo, createContext, useContext, useState } from 'react';
+import { useEffect, createContext, useContext, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Lenis from '@studio-freight/lenis';
@@ -11,6 +11,7 @@ import '@fontsource/dm-sans/600.css';
 import '@fontsource/dm-sans/700.css';
 import '@fontsource/instrument-sans/400.css';
 import '@fontsource/instrument-sans/500.css';
+import Link from 'next/link';
 
 type Theme = 'black' | 'red' | 'gold';
 type ThemeContextType = {
@@ -73,23 +74,6 @@ const FadeIn = ({ children, className = "", delay = 0 }: { children: React.React
     </motion.div>
   );
 };
-
-const shine = `
-  @keyframes shine {
-    0% {
-      background-position: 200% 0;
-    }
-    45% {
-      background-position: 0% 0;
-    }
-    55% {
-      background-position: -50% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
-`;
 
 const GermanyText = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -170,9 +154,9 @@ export default function Home() {
 
         <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-black/20 border-b theme-border theme-transition">
           <nav className="max-w-screen-xl mx-auto px-4 sm:px-8 py-4 sm:py-4 flex justify-between items-center font-['DM_Sans']">
-            <a href="/" className="text-xl sm:text-xl font-medium tracking-tight theme-primary theme-transition">
+            <Link href="/" className="text-xl sm:text-xl font-medium tracking-tight theme-primary theme-transition">
               JL
-            </a>
+            </Link>
             <div className="flex items-center gap-6 sm:gap-12 text-base sm:text-base tracking-wide">
               <a href="#work" className="theme-secondary hover:theme-primary theme-transition">
                 Work
@@ -305,10 +289,10 @@ export default function Home() {
                 <div className="space-y-12 sm:space-y-16 font-['Instrument_Sans']">
                   <div className="space-y-8 sm:space-y-8">
                     <p className="text-2xl sm:text-2xl text-white/90 leading-relaxed">
-                      Hello! I'm Jan-Marlon, but please call me Jan. I started my journey in programming at the age of 11 with C#, fascinated by a desktop application my friend created.
+                      Hello! I&apos;m Jan-Marlon, but please call me Jan. I started my journey in programming at the age of 11 with C#, fascinated by a desktop application my friend created.
                     </p>
                     <p className="text-xl sm:text-xl text-white/70 leading-relaxed">
-                      Today, I specialize in PHP and TypeScript development, constantly pushing the boundaries of what's possible on the web. My journey has led me from creating simple applications to developing complex systems used by thousands.
+                      Today, I specialize in PHP and TypeScript development, constantly pushing the boundaries of what&apos;s possible on the web. My journey has led me from creating simple applications to developing complex systems used by thousands.
                     </p>
                   </div>
 
@@ -470,7 +454,7 @@ export default function Home() {
             <div className="grid gap-20 sm:gap-24">
               <FadeIn>
                 <div className="text-center space-y-5">
-                  <h2 className="font-['DM_Sans'] text-6xl sm:text-7xl font-semibold tracking-tight">Let's Connect</h2>
+                  <h2 className="font-['DM_Sans'] text-6xl sm:text-7xl font-semibold tracking-tight">Let&apos;s Connect</h2>
                   <p className="font-['Instrument_Sans'] text-white/70 text-xl sm:text-2xl max-w-2xl mx-auto">
                     Always interested in new opportunities and collaborations.
                   </p>
