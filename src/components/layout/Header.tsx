@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-// Lazy load the mobile menu component
 const MobileMenu = dynamic(() => import('./MobileMenu').then(mod => ({ default: mod.MobileMenu })), {
   ssr: false,
   loading: () => (
