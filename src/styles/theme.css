@@ -1,0 +1,115 @@
+.black { background: #0A0A0A; }
+.red { background: #1A0000; }
+.gold { background: #1A1400; }
+
+.black .theme-primary { color: rgba(255, 255, 255, 0.9); }
+.red .theme-primary { color: rgba(255, 0, 0, 0.9); }
+.gold .theme-primary { color: rgba(255, 204, 0, 0.9); }
+
+.black .theme-secondary { color: rgba(255, 255, 255, 0.6); }
+.red .theme-secondary { color: rgba(255, 0, 0, 0.6); }
+.gold .theme-secondary { color: rgba(255, 204, 0, 0.6); }
+
+.black .theme-accent { background-color: rgba(255, 255, 255, 0.03); }
+.red .theme-accent { background-color: rgba(255, 0, 0, 0.03); }
+.gold .theme-accent { background-color: rgba(255, 204, 0, 0.03); }
+
+.black .theme-border { border-color: rgba(255, 255, 255, 0.1); }
+.red .theme-border { border-color: rgba(255, 0, 0, 0.1); }
+.gold .theme-border { border-color: rgba(255, 204, 0, 0.1); }
+
+.black .theme-text-40 { color: rgba(255, 255, 255, 0.4); }
+.red .theme-text-40 { color: rgba(255, 0, 0, 0.4); }
+.gold .theme-text-40 { color: rgba(255, 204, 0, 0.4); }
+
+.black .theme-text-70 { color: rgba(255, 255, 255, 0.7); }
+.red .theme-text-70 { color: rgba(255, 0, 0, 0.7); }
+.gold .theme-text-70 { color: rgba(255, 204, 0, 0.7); }
+
+.black .theme-text-90 { color: rgba(255, 255, 255, 0.9); }
+.red .theme-text-90 { color: rgba(255, 0, 0, 0.9); }
+.gold .theme-text-90 { color: rgba(255, 204, 0, 0.9); }
+
+.black .theme-bg-05 { background-color: rgba(255, 255, 255, 0.05); }
+.red .theme-bg-05 { background-color: rgba(255, 0, 0, 0.05); }
+.gold .theme-bg-05 { background-color: rgba(255, 204, 0, 0.05); }
+
+.black .nav-glass { 
+  background: rgba(10, 10, 10, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+.red .nav-glass { 
+  background: rgba(26, 0, 0, 0.8);
+  box-shadow: 0 8px 32px rgba(26, 0, 0, 0.1);
+}
+.gold .nav-glass { 
+  background: rgba(26, 20, 0, 0.8);
+  box-shadow: 0 8px 32px rgba(26, 20, 0, 0.1);
+}
+
+.black .nav-item-active {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+}
+.red .nav-item-active {
+  background: rgba(255, 0, 0, 0.05);
+  border-bottom: 2px solid rgba(255, 0, 0, 0.8);
+}
+.gold .nav-item-active {
+  background: rgba(255, 204, 0, 0.05);
+  border-bottom: 2px solid rgba(255, 204, 0, 0.8);
+}
+
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.black .nav-item::after {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.red .nav-item::after {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+.gold .nav-item::after {
+  background-color: rgba(255, 204, 0, 0.8);
+}
+
+.nav-item:hover::after {
+  transform: translateX(0);
+}
+
+.black .theme-bg-gradient { background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), transparent); }
+.red .theme-bg-gradient { background: linear-gradient(to bottom, rgba(255, 0, 0, 0.02), transparent); }
+.gold .theme-bg-gradient { background: linear-gradient(to bottom, rgba(255, 204, 0, 0.02), transparent); }
+
+.black .theme-button-primary { background-color: rgba(255, 255, 255, 0.9); color: #0A0A0A; }
+.red .theme-button-primary { background-color: rgba(255, 0, 0, 0.9); color: #1A0000; }
+.gold .theme-button-primary { background-color: rgba(255, 204, 0, 0.9); color: #1A1400; }
+
+.black .theme-button-primary:hover { background-color: rgba(255, 255, 255, 0.8); }
+.red .theme-button-primary:hover { background-color: rgba(255, 0, 0, 0.8); }
+.gold .theme-button-primary:hover { background-color: rgba(255, 204, 0, 0.8); }
+
+.black .theme-button-secondary { border-color: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.9); }
+.red .theme-button-secondary { border-color: rgba(255, 0, 0, 0.1); color: rgba(255, 0, 0, 0.9); }
+.gold .theme-button-secondary { border-color: rgba(255, 204, 0, 0.1); color: rgba(255, 204, 0, 0.9); }
+
+.black .theme-button-secondary:hover { background-color: rgba(255, 255, 255, 0.05); }
+.red .theme-button-secondary:hover { background-color: rgba(255, 0, 0, 0.05); }
+.gold .theme-button-secondary:hover { background-color: rgba(255, 204, 0, 0.05); }
+
+.theme-transition {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+} 
