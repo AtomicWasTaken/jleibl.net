@@ -180,7 +180,6 @@ const MobileMenu = () => {
       <AnimatePresence mode="wait">
         {isOpen && (
           <>
-            {/* Overlay - increased opacity */}
             <motion.div 
               className="fixed inset-0 bg-black z-[90]"
               initial={{ opacity: 0 }}
@@ -195,7 +194,6 @@ const MobileMenu = () => {
               aria-hidden="true"
             />
             
-            {/* Menu container - full height */}
             <motion.div 
               className="fixed top-0 bottom-0 right-0 w-full sm:w-80 z-[100] h-[100dvh]"
               ref={menuRef}
@@ -236,9 +234,7 @@ const MobileMenu = () => {
                   </svg>
                 </motion.button>
               
-                {/* Content wrapper with padding and scrolling */}
                 <div className="w-full h-full p-6 pt-16 flex flex-col overflow-y-auto">
-                  {/* Navigation links */}
                   <nav className="mb-8">
                     <motion.div 
                       className="flex flex-col space-y-2"
@@ -278,7 +274,6 @@ const MobileMenu = () => {
                     </motion.div>
                   </nav>
                 
-                  {/* Footer content */}
                   <motion.div 
                     className="mt-auto"
                     initial={{ opacity: 0, y: 20 }}
@@ -446,14 +441,12 @@ export default function Home() {
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           
-          {/* Primary Meta Tags */}
           <meta name="title" content="Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert" />
           <meta name="description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
           <meta name="keywords" content="Software Development, PHP Developer, TypeScript, Fullstack Engineer, Web Development, System Architecture, MySQL, React, Performance Optimization" />
           <meta name="author" content="Jan-Marlon Leibl" />
           <meta name="robots" content="index, follow" />
 
-          {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://jleibl.net/" />
           <meta property="og:title" content="Jan-Marlon Leibl • Fullstack Software Developer" />
@@ -463,7 +456,6 @@ export default function Home() {
           <meta property="og:image:height" content="400" />
           <meta property="og:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
 
-          {/* Twitter */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://jleibl.net/" />
           <meta name="twitter:title" content="Jan-Marlon Leibl • Fullstack Software Developer" />
@@ -471,10 +463,8 @@ export default function Home() {
           <meta name="twitter:image" content="https://jleibl.net/profile-image.jpg" />
           <meta name="twitter:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
 
-          {/* Favicon */}
           <link rel="icon" href="/profile-image.jpg" type="image/jpeg" />
 
-          {/* Canonical */}
           <link rel="canonical" href="https://jleibl.net/" />
         </Head>
 
