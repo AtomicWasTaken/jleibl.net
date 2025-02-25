@@ -1,0 +1,34 @@
+# Step 1: Use Bun as the base image
+FROM oven/bun:latest AS build
+
+# Set the working directory inside the container
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Step 2: Install dependencies and build the project
+COPY . .
+
+# Install dependencies
+RUN bun install --prod
+
+# Step 3: Build the Next.js application
+RUN bun run build
+
+# Step 5: Set up the production image
+FROM oven/bun:latest AS production
+
+WORKDIR /app
+
+# Copy necessary files from the build stage
+COPY --from=build /app /app
+
+# Install only production dependencies
+RUN bun install --prod
+RUN bun next build
+
+# Expose the application port
+EXPOSE 3001
+
+# Start the Next.js application
+CMD ["bun", "start", "-p", "3001"]
