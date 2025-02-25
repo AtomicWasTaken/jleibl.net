@@ -1,6 +1,35 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FadeIn } from '../ui/FadeIn';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiPhp, SiJavascript, SiMysql, SiReact, SiNextdotjs, SiTypescript } from 'react-icons/si';
+import { MdWeb, MdArchitecture, MdDesignServices, MdSpeed } from 'react-icons/md';
+
+interface Tech {
+  name: string;
+  icon: React.ReactNode;
+}
+
+interface Interest {
+  name: string;
+  icon: React.ReactNode;
+}
+
+const technologies: Tech[] = [
+  { name: 'PHP', icon: <SiPhp /> },
+  { name: 'JavaScript', icon: <SiJavascript /> },
+  { name: 'TypeScript', icon: <SiTypescript /> },
+  { name: 'React', icon: <SiReact /> },
+  { name: 'Next.js', icon: <SiNextdotjs /> },
+  { name: 'MySQL', icon: <SiMysql /> }
+];
+
+const interests: Interest[] = [
+  { name: 'Web Development', icon: <MdWeb /> },
+  { name: 'System Architecture', icon: <MdArchitecture /> },
+  { name: 'UI/UX Design', icon: <MdDesignServices /> },
+  { name: 'Performance Optimization', icon: <MdSpeed /> }
+];
 
 export const About = () => {
   return (
@@ -8,7 +37,9 @@ export const About = () => {
       <div className="max-w-screen-xl mx-auto">
         <FadeIn>
           <div className="flex items-baseline gap-4 mb-12 sm:mb-24">
-            <h2 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">About</h2>
+            <h2 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">
+              About
+            </h2>
             <div className="h-px flex-grow bg-white/10 relative top-[-4px]"></div>
           </div>
         </FadeIn>
@@ -29,8 +60,12 @@ export const About = () => {
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="space-y-2 text-center md:text-left">
-                <h3 className="font-['DM_Sans'] text-xl sm:text-2xl font-medium theme-primary">Jan-Marlon Leibl</h3>
-                <p className="font-['Instrument_Sans'] theme-text-70 text-base sm:text-lg">Fullstack Developer</p>
+                <h3 className="font-['DM_Sans'] text-xl sm:text-2xl font-medium theme-primary">
+                  Jan-Marlon Leibl
+                </h3>
+                <p className="font-['Instrument_Sans'] theme-text-70 text-base sm:text-lg">
+                  Fullstack Developer
+                </p>
               </div>
             </FadeIn>
           </div>
@@ -49,17 +84,19 @@ export const About = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16">
                 <div className="space-y-6 sm:space-y-8">
                   <div className="flex items-baseline gap-4">
-                    <h3 className="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">Technologies</h3>
+                    <h3 className="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                      Technologies
+                    </h3>
                     <div className="h-px flex-grow theme-border"></div>
                   </div>
                   <ul className="space-y-4 sm:space-y-5">
-                    {['PHP', 'JavaScript', 'MySQL', 'React'].map((tech) => (
+                    {technologies.map((tech) => (
                       <li 
-                        key={tech} 
-                        className="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default"
+                        key={tech.name} 
+                        className="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default bg-white/[0.02] px-3 py-2 rounded-md"
                       >
-                        <span className="w-2 h-2 rounded-full theme-text-40 group-hover:theme-text-90 transition-colors"></span>
-                        {tech}
+                        <span className="text-lg theme-text-40 group-hover:theme-text-90 transition-colors">{tech.icon}</span>
+                        {tech.name}
                       </li>
                     ))}
                   </ul>
@@ -67,22 +104,19 @@ export const About = () => {
 
                 <div className="space-y-6 sm:space-y-8">
                   <div className="flex items-baseline gap-4">
-                    <h3 className="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">Interests</h3>
+                    <h3 className="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                      Interests
+                    </h3>
                     <div className="h-px flex-grow theme-border"></div>
                   </div>
                   <ul className="space-y-4 sm:space-y-5">
-                    {[
-                      'Web Development',
-                      'System Architecture',
-                      'UI/UX Design',
-                      'Performance Optimization'
-                    ].map((interest) => (
+                    {interests.map((interest) => (
                       <li 
-                        key={interest} 
-                        className="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default"
+                        key={interest.name} 
+                        className="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default bg-white/[0.02] px-3 py-2 rounded-md"
                       >
-                        <span className="w-2 h-2 rounded-full theme-text-40 group-hover:theme-text-90 transition-colors"></span>
-                        {interest}
+                        <span className="text-lg theme-text-40 group-hover:theme-text-90 transition-colors">{interest.icon}</span>
+                        {interest.name}
                       </li>
                     ))}
                   </ul>
@@ -94,18 +128,20 @@ export const About = () => {
                   href="https://github.com/AtomicWasTaken" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90"
+                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center"
                   whileHover={{ scale: 1.02 }}
                 >
+                  <FaGithub className="mr-2" />
                   View GitHub
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/janmarlonleibl/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90"
+                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center"
                   whileHover={{ scale: 1.02 }}
                 >
+                  <FaLinkedin className="mr-2" />
                   Connect on LinkedIn
                 </motion.a>
               </div>

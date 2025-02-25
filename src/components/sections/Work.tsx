@@ -1,38 +1,108 @@
 import { FadeIn } from '../ui/FadeIn';
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiPhp, SiJavascript, SiMysql, SiDiscord } from 'react-icons/si';
+import { BsLightningChargeFill } from 'react-icons/bs';
+import { FaCode } from 'react-icons/fa';
+import { HiOutlineCollection } from 'react-icons/hi';
+import { MdLaunch } from 'react-icons/md';
+import React from 'react';
 
 interface Project {
   title: string;
   year: string;
   description: string;
-  tags: string[];
+  icon: React.ReactNode;
+  tags: Array<{
+    name: string;
+    icon: React.ReactNode;
+  }>;
 }
+
+const getTagIcon = (tag: string) => {
+  switch (tag) {
+    case 'Next.js':
+      return <SiNextdotjs className="text-lg" />;
+    case 'Tailwind CSS':
+      return <SiTailwindcss className="text-lg" />;
+    case 'TypeScript':
+      return <SiTypescript className="text-lg" />;
+    case 'PHP':
+      return <SiPhp className="text-lg" />;
+    case 'JavaScript':
+      return <SiJavascript className="text-lg" />;
+    case 'MySQL':
+      return <SiMysql className="text-lg" />;
+    case 'Performance':
+      return <BsLightningChargeFill className="text-lg" />;
+    case 'Discord API':
+      return <SiDiscord className="text-lg" />;
+    default:
+      return null;
+  }
+};
+
+const getProjectIcon = (title: string) => {
+  if (title.includes('ventry')) {
+    return <MdLaunch className="text-2xl" />;
+  } else if (title.includes('ShareUpload')) {
+    return <HiOutlineCollection className="text-2xl" />;
+  } else if (title.includes('RestoreM')) {
+    return <SiDiscord className="text-2xl" />;
+  } else {
+    return <FaCode className="text-2xl" />;
+  }
+};
 
 const projects: Project[] = [
   {
     title: 'ventry.host v2',
     year: '2025',
     description: 'Free file hosting revamped with a modern design and improved user experience.',
-    tags: ['Next.js', 'Tailwind CSS', 'TypeScript']
+    icon: getProjectIcon('ventry.host v2'),
+    tags: [
+      { name: 'Next.js', icon: getTagIcon('Next.js') },
+      { name: 'Tailwind CSS', icon: getTagIcon('Tailwind CSS') },
+      { name: 'TypeScript', icon: getTagIcon('TypeScript') }
+    ]
   },
   {
     title: 'ventry.host',
     year: '2023',
     description: 'A free file hosting solution with thousands of daily visitors.',
-    tags: ['PHP', 'JavaScript', 'MySQL']
+    icon: getProjectIcon('ventry.host'),
+    tags: [
+      { name: 'PHP', icon: getTagIcon('PHP') },
+      { name: 'JavaScript', icon: getTagIcon('JavaScript') },
+      { name: 'MySQL', icon: getTagIcon('MySQL') }
+    ]
   },
   {
     title: 'ShareUpload',
     year: '2022',
     description: 'High-performance file sharing platform with unlimited storage.',
-    tags: ['PHP', 'MySQL', 'Performance']
+    icon: getProjectIcon('ShareUpload'),
+    tags: [
+      { name: 'PHP', icon: getTagIcon('PHP') },
+      { name: 'MySQL', icon: getTagIcon('MySQL') },
+      { name: 'Performance', icon: getTagIcon('Performance') }
+    ]
   },
   {
     title: 'RestoreM',
     year: '2023',
     description: 'Discord server backup and restoration service.',
-    tags: ['PHP', 'MySQL', 'Discord API']
+    icon: getProjectIcon('RestoreM'),
+    tags: [
+      { name: 'PHP', icon: getTagIcon('PHP') },
+      { name: 'MySQL', icon: getTagIcon('MySQL') },
+      { name: 'Discord API', icon: getTagIcon('Discord API') }
+    ]
   }
 ];
+
+// Sort projects by year (newest first)
+const sortedProjects = [...projects].sort((a, b) => {
+  return parseInt(b.year) - parseInt(a.year);
+});
 
 export const Work = () => {
   return (
@@ -41,16 +111,20 @@ export const Work = () => {
       <div className="max-w-screen-xl mx-auto relative">
         <FadeIn>
           <div className="flex flex-col gap-3 mb-12 sm:mb-24">
-            <span className="theme-text-40 uppercase tracking-[0.2em] text-sm sm:text-base font-['Instrument_Sans']">Portfolio</span>
+            <span className="theme-text-40 uppercase tracking-[0.2em] text-sm sm:text-base font-['Instrument_Sans']">
+              Portfolio
+            </span>
             <div className="flex items-baseline gap-4">
-              <h2 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">Selected Work</h2>
+              <h2 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">
+                Selected Work
+              </h2>
               <div className="h-px flex-grow theme-border"></div>
             </div>
           </div>
         </FadeIn>
         
         <div className="grid gap-24 sm:gap-40">
-          {projects.map((project, index) => (
+          {sortedProjects.map((project, index) => (
             <FadeIn key={index} delay={index * 0.1}>
               <div className="group relative">
                 <div className="absolute top-0 left-0 right-0 flex items-center gap-4">
@@ -72,15 +146,19 @@ export const Work = () => {
 
                   <div className="space-y-6 sm:space-y-12">
                     <div className="space-y-4 sm:space-y-6">
-                      <h4 className="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">Technologies</h4>
+                      <h4 className="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                        Technologies
+                      </h4>
                       <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                         {project.tags.map((tag, tagIndex) => (
                           <span 
                             key={tagIndex} 
-                            className="text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-wide py-1 sm:py-2 group-hover:theme-text-90 transition-colors"
+                            className="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-wide py-1 sm:py-2 group-hover:theme-text-90 transition-colors bg-white/[0.02] px-3 sm:px-4 rounded-full shadow-sm"
                           >
-                            {tag}{tagIndex !== project.tags.length - 1 && (
-                              <span className="mx-3 sm:mx-4 theme-text-40 select-none">•</span>
+                            <span className="mr-2 flex items-center">{tag.icon}</span>
+                            {tag.name}
+                            {tagIndex !== project.tags.length - 1 && (
+                              <span className="ml-2 opacity-0">•</span>
                             )}
                           </span>
                         ))}
