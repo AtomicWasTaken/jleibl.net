@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FadeIn } from '../ui/FadeIn';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { SiPhp, SiJavascript, SiMysql, SiReact, SiNextdotjs, SiTypescript } from 'react-icons/si';
+import { SiPhp, SiJavascript, SiMysql, SiReact } from 'react-icons/si';
 import { MdWeb, MdArchitecture, MdDesignServices, MdSpeed } from 'react-icons/md';
 
 interface Tech {
@@ -18,10 +17,8 @@ interface Interest {
 const technologies: Tech[] = [
   { name: 'PHP', icon: <SiPhp /> },
   { name: 'JavaScript', icon: <SiJavascript /> },
-  { name: 'TypeScript', icon: <SiTypescript /> },
-  { name: 'React', icon: <SiReact /> },
-  { name: 'Next.js', icon: <SiNextdotjs /> },
-  { name: 'MySQL', icon: <SiMysql /> }
+  { name: 'MySQL', icon: <SiMysql /> },
+  { name: 'React', icon: <SiReact /> }
 ];
 
 const interests: Interest[] = [
@@ -128,20 +125,18 @@ export const About = () => {
                   href="https://github.com/AtomicWasTaken" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center"
+                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <FaGithub className="mr-2" />
                   View GitHub
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/janmarlonleibl/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center"
+                  className="w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <FaLinkedin className="mr-2" />
                   Connect on LinkedIn
                 </motion.a>
               </div>
