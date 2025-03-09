@@ -20,10 +20,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: '*'
+      allowedHosts: 'jleibl.net'
     },
     preview: {
-      allowedHosts: '*',
+      allowedHosts: 'jleibl.net',
       port: 4321
     }
   }
