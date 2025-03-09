@@ -28,7 +28,7 @@ RUN bun install --prod
 RUN bun astro build
 
 # Expose the application port
-EXPOSE 3001
+EXPOSE 4321
 
 # Start the Next.js application
 CMD ["bun", "start", "-p", "3001"]
