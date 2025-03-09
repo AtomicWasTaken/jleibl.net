@@ -1,0 +1,70 @@
+---
+import FadeIn from "../ui/FadeIn.astro";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+---
+
+<footer
+  role="contentinfo"
+  class="mt-20 sm:mt-32 theme-bg-gradient border-t theme-border"
+>
+  <div class="max-w-(--breakpoint-xl) mx-auto px-4 sm:px-8 py-20 sm:py-32">
+    <div class="grid gap-16 sm:gap-24">
+      <FadeIn>
+        <div class="text-center space-y-4 sm:space-y-5">
+          <h2
+            class="font-['DM_Sans'] text-4xl sm:text-7xl font-semibold tracking-tight theme-primary"
+          >
+            Let&apos;s Connect
+          </h2>
+          <p
+            class="font-['Instrument_Sans'] theme-text-70 text-lg sm:text-2xl max-w-2xl mx-auto"
+          >
+            Always interested in new opportunities and collaborations.
+          </p>
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={0.1}>
+        <div class="flex flex-col items-center gap-8 sm:gap-12 font-['Instrument_Sans']">
+          <a
+            href="mailto:jleibl@proton.me"
+            class="group flex items-center gap-3 text-xl sm:text-4xl theme-text-90 hover:theme-primary transition-colors"
+          >
+            <FaEnvelope className="w-6 h-6 sm:w-8 sm:h-8" />
+            jleibl@proton.me
+          </a>
+          
+          <div class="flex gap-6 sm:gap-10">
+            <a 
+              href="https://github.com/AtomicWasTaken" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group theme-text-70 hover:theme-primary transition-colors"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub className="w-8 h-8 sm:w-10 sm:h-10" />
+            </a>
+            
+            <a 
+              href="https://www.linkedin.com/in/janmarlonleibl/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group theme-text-70 hover:theme-primary transition-colors"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedin className="w-8 h-8 sm:w-10 sm:h-10" />
+            </a>
+          </div>
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={0.2}>
+        <div class="pt-6 sm:pt-12 text-center">
+          <p class="font-['Instrument_Sans'] theme-text-40 text-xs sm:text-sm tracking-[0.1em]">
+            © {new Date().getFullYear()} Jan-Marlon Leibl. All rights reserved.
+          </p>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</footer>

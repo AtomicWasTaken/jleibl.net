@@ -3,15 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "astro check"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/react": "^4.2.1",
     "@fontsource/dm-sans": "^5.1.1",
     "@fontsource/instrument-sans": "^5.1.1",
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/ph": "^1.2.2",
     "@studio-freight/lenis": "^1.0.42",
+    "@tailwindcss/vite": "^4.0.12",
+    "astro": "^5.4.2",
+    "astro-icon": "^1.1.5",
     "framer-motion": "^12.4.7",
     "next": "15.1.7",
     "react": "^19.0.0",
@@ -20,14 +28,14 @@
     "react-intersection-observer": "^9.15.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^4.0.12",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "@eslint/eslintrc": "^3"
+    "postcss": "^8",
+    "tailwindcss": "^4.0.12",
+    "typescript": "^5.7.3"
   }
 }

@@ -1,0 +1,127 @@
+---
+import Header from '../components/layout/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Work from '../components/sections/Work.astro';
+import Footer from '../components/layout/Footer.astro';
+
+import '../styles/global.css';
+import '../styles/theme.css';
+
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/dm-sans/700.css';
+import '@fontsource/instrument-sans/400.css';
+import '@fontsource/instrument-sans/500.css';
+---
+
+<html lang="en">
+  <head>
+    <title>Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <meta name="title" content="Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert" />
+    <meta name="description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
+    <meta name="keywords" content="Software Development, PHP Developer, TypeScript, Fullstack Engineer, Web Development, System Architecture, MySQL, React, Performance Optimization" />
+    <meta name="author" content="Jan-Marlon Leibl" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jleibl.net/" />
+    <meta property="og:title" content="Jan-Marlon Leibl • Fullstack Software Developer" />
+    <meta property="og:description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
+    <meta property="og:image" content="https://jleibl.net/profile-image.jpg" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jleibl.net/" />
+    <meta name="twitter:title" content="Jan-Marlon Leibl • Fullstack Software Developer" />
+    <meta name="twitter:description" content="Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies." />
+    <meta name="twitter:image" content="https://jleibl.net/profile-image.jpg" />
+    <meta name="twitter:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
+
+    <link rel="icon" href="/profile-image.jpg" type="image/jpeg" />
+    <link rel="canonical" href="https://jleibl.net/" />
+  </head>
+  <body>
+    <div id="app-root" class="min-h-screen theme-transition black">
+      <Header />
+      <Hero />
+      <About />
+      <Work />
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<script>
+  // Theme Provider functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const appRoot = document.getElementById('app-root');
+    const themeButtons = document.querySelectorAll('.theme-button');
+    const currentTheme = localStorage.getItem('theme') || 'black';
+    
+    if (appRoot) {
+      appRoot.classList.remove('black', 'red', 'gold');
+      appRoot.classList.add(currentTheme);
+    }
+    
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    document.getElementById(`theme-${currentTheme}`)?.classList.add('ring-1', 'ring-white/20');
+    
+    document.addEventListener('themeChanged', (e) => {
+      const customEvent = e as Event & { detail: { theme: string } };
+      const newTheme = customEvent.detail.theme;
+      if (appRoot && newTheme) {
+        appRoot.classList.remove('black', 'red', 'gold');
+        appRoot.classList.add(newTheme);
+      }
+    });
+  });
+</script>
+
+<script>
+  import Lenis from '@studio-freight/lenis';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+    
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            lenis.scrollTo(targetElement as HTMLElement, {
+              offset: 0,
+              duration: 1.2,
+              immediate: false
+            });
+          }
+        }
+      });
+    });
+    
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    
+    requestAnimationFrame(raf);
+  });
+</script>

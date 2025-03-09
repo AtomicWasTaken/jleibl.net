@@ -1,0 +1,80 @@
+---
+import MobileMenu from './MobileMenu.astro';
+---
+
+<header 
+  class="fixed top-0 left-0 right-0 z-40 nav-glass backdrop-blur-lg theme-transition"
+  role="banner"
+>
+  <div class="max-w-(--breakpoint-xl) mx-auto">
+    <nav class="py-5 px-6 sm:px-8 flex justify-between items-center font-['DM_Sans']" role="navigation" aria-label="Main navigation">
+      <div class="flex items-center">
+        <a href="#hero" class="flex items-center gap-2 group" aria-label="Home">
+          <div class="relative w-10 h-10 rounded-full theme-accent flex items-center justify-center border theme-border overflow-hidden group-hover:border-opacity-80 transition-all duration-300">
+            <span class="text-lg font-bold tracking-tight theme-primary theme-transition">JL</span>
+            <div class="absolute inset-0 theme-bg-05 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <span class="text-lg font-medium tracking-tight theme-primary theme-transition hidden sm:block">
+            Jan-Marlon Leibl
+          </span>
+        </a>
+      </div>
+      
+      <div class="hidden md:flex items-center">
+        <div class="flex bg-black/10 backdrop-blur-md rounded-full overflow-hidden theme-border border divide-x divide-white/5">
+          {["About", "Work"].map((item) => (
+            <a 
+              href={`#${item.toLowerCase()}`} 
+              class="nav-item px-6 py-2 theme-secondary hover:theme-primary theme-transition"
+              aria-label={`View my ${item.toLowerCase()}`}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+        
+        <div class="ml-6">
+          <a 
+            href="mailto:jleibl@proton.me" 
+            class="flex items-center gap-2 px-6 py-2 theme-bg-05 theme-primary border theme-border rounded-full hover:bg-opacity-100 transition-all duration-300 group"
+            aria-label="Contact me via email"
+          >
+            <svg class="w-4 h-4 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span class="text-sm">Contact</span>
+            <div class="w-0 overflow-hidden group-hover:w-4 transition-all duration-500">
+              <svg class="w-4 h-4 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="flex md:hidden">
+        <MobileMenu />
+      </div>
+    </nav>
+  </div>
+  
+  <div class="h-px w-full theme-border opacity-50"></div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.transform = 'translateY(0)';
+      header.style.opacity = '1';
+    }
+  });
+</script>
+
+<style>
+  header {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+</style> 

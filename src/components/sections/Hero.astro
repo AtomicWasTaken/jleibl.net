@@ -1,0 +1,115 @@
+---
+import FadeIn from '../ui/FadeIn.astro';
+import GermanyFlag from '../ui/GermanyFlag.astro';
+---
+
+<section class="min-h-[100dvh] flex items-center justify-center px-4 sm:px-8 relative pt-24 sm:pt-8" id="hero">
+  <div class="absolute inset-0 theme-bg-gradient"></div>
+  <div class="max-w-7xl w-full relative pt-8 sm:pt-24">
+    <FadeIn className="space-y-8 sm:space-y-16">
+      <div class="space-y-6 sm:space-y-8">
+        <div class="space-y-6 sm:space-y-8">
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full theme-accent theme-border theme-transition">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="theme-secondary uppercase tracking-[0.2em] text-xs sm:text-sm font-['Instrument_Sans']">Available for Work</span>
+          </div>
+          <div class="space-y-2 sm:space-y-3">
+            <h2 class="font-['DM_Sans'] text-xl sm:text-3xl theme-secondary tracking-wide font-medium theme-transition">
+              Jan-Marlon Leibl
+            </h2>
+            <div>
+              <h1 class="font-['DM_Sans'] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] sm:leading-[0.95] max-w-4xl theme-primary theme-transition">
+                Software Developer
+                <br />
+                <span class="theme-secondary">based in <GermanyFlag /></span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <p class="font-['Instrument_Sans'] theme-secondary text-lg sm:text-2xl max-w-2xl leading-relaxed tracking-wide theme-transition">
+          Passionate about creating digital experiences, with a focus on PHP and modern web technologies.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a 
+            href="#work"
+            class="animate-button w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 theme-button-primary rounded-lg sm:rounded-full transition-colors text-sm sm:text-base tracking-wide font-medium group"
+          >
+            View My Work
+            <svg 
+              class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a
+            href="mailto:jleibl@proton.me"
+            class="animate-button w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full theme-button-secondary hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide group"
+          >
+            Get in Touch
+            <svg 
+              class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t theme-border pt-5 pb-5">
+        <div class="grid grid-cols-1 sm:grid-cols-3 w-full gap-8 sm:gap-0 py-6 sm:py-8 font-['Instrument_Sans']">
+          <div class="text-center sm:border-r theme-border last:border-r-0">
+            <div class="mb-3 sm:mb-4">
+              <span class="theme-text-40 uppercase tracking-[0.2em] text-xs sm:text-sm">EMAIL</span>
+            </div>
+            <a 
+              href="mailto:jleibl@proton.me" 
+              class="theme-text-90 hover:theme-primary transition-colors text-base sm:text-lg"
+            >
+              jleibl@proton.me
+            </a>
+          </div>
+          
+          <div class="text-center sm:border-r theme-border last:border-r-0">
+            <div class="mb-3 sm:mb-4">
+              <span class="theme-text-40 uppercase tracking-[0.2em] text-xs sm:text-sm">ROLE</span>
+            </div>
+            <span class="theme-text-90 text-base sm:text-lg">
+              Fullstack Developer
+            </span>
+          </div>
+          
+          <div class="text-center">
+            <div class="mb-3 sm:mb-4">
+              <span class="theme-text-40 uppercase tracking-[0.2em] text-xs sm:text-sm">EXPERIENCE</span>
+            </div>
+            <span class="theme-text-90 text-base sm:text-lg">
+              5+ Years
+            </span>
+          </div>
+        </div>
+      </div>
+    </FadeIn>
+  </div>
+</section>
+
+<style>
+  .animate-button {
+    transition: transform 0.2s ease-out;
+  }
+  
+  .animate-button:hover {
+    transform: scale(1.03);
+  }
+  
+  .animate-button:active {
+    transform: scale(0.97);
+  }
+</style> 

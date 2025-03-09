@@ -1,0 +1,58 @@
+<div 
+  id="germany-flag"
+  role="group"
+  aria-label="Theme switcher with German flag colors"
+  style="display:inline-flex;width:3em;height:0.6em;margin-left:0.1em;vertical-align:middle;border-radius:1px;overflow:hidden;opacity:0.6;cursor:pointer;"
+  class="germany-flag-container hover:opacity-80 transition-opacity duration-200"
+>
+  <button
+    id="theme-black"
+    aria-label="Switch to dark theme"
+    data-theme="black"
+    style="flex:1;background-color:rgba(0, 0, 0, 0.5);border-left:2px solid rgba(255, 255, 255, 0.1);border-top:2px solid rgba(255, 255, 255, 0.1);border-bottom:2px solid rgba(255, 255, 255, 0.1);"
+    class="theme-button transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+  ></button>
+  <button
+    id="theme-red"
+    aria-label="Switch to red theme"
+    data-theme="red"
+    style="flex:1;background-color:rgba(255, 0, 0);"
+    class="theme-button transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+  ></button>
+  <button
+    id="theme-gold"
+    aria-label="Switch to gold theme"
+    data-theme="gold"
+    style="flex:1;background-color:rgba(255, 204, 0);"
+    class="theme-button transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+  ></button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeButtons = document.querySelectorAll('.theme-button');
+    const currentTheme = localStorage.getItem('theme') || 'black';
+    
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    document.getElementById(`theme-${currentTheme}`)?.classList.add('ring-1', 'ring-white/20');
+    
+    themeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const theme = button.getAttribute('data-theme');
+        if (!theme) return;
+        
+        themeButtons.forEach(btn => btn.classList.remove('ring-1', 'ring-white/20'));
+        
+        button.classList.add('ring-1', 'ring-white/20');
+        
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        const themeChangedEvent = new CustomEvent('themeChanged', {
+          detail: { theme }
+        });
+        document.dispatchEvent(themeChangedEvent);
+      });
+    });
+  });
+</script> 

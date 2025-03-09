@@ -1,0 +1,146 @@
+---
+import FadeIn from '../ui/FadeIn.astro';
+import { Icon } from 'astro-icon/components';
+import { SiPhp, SiJavascript, SiMysql, SiReact } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaGlobe, FaPalette } from 'react-icons/fa';
+import { BsLightningChargeFill } from 'react-icons/bs';
+import { IoServerOutline } from 'react-icons/io5';
+import { Image } from 'astro:assets';
+
+const technologies = [
+  { name: 'PHP', icon: SiPhp },
+  { name: 'JavaScript', icon: SiJavascript },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'React', icon: SiReact }
+];
+
+const interests = [
+  { name: 'Web Development', icon: FaGlobe },
+  { name: 'System Architecture', icon: IoServerOutline },
+  { name: 'UI/UX Design', icon: FaPalette },
+  { name: 'Performance Optimization', icon: BsLightningChargeFill }
+];
+---
+
+<section id="about" class="py-20 sm:py-40 px-4 sm:px-8 theme-bg-gradient">
+  <div class="max-w-(--breakpoint-xl) mx-auto">
+    <FadeIn>
+      <div class="flex items-baseline gap-4 mb-12 sm:mb-24">
+        <h2 class="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">
+          About
+        </h2>
+        <div class="h-px grow bg-white/10 relative top-[-4px]"></div>
+      </div>
+    </FadeIn>
+    
+    <div class="grid md:grid-cols-[1fr_2fr] gap-12 sm:gap-24">
+      <div class="space-y-6 sm:space-y-8">
+        <FadeIn>
+          <div class="aspect-square bg-linear-to-tr theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/10 transition-colors mx-auto md:mx-0 max-w-[280px] md:max-w-none">
+            <Image
+              src="/profile-image.jpg"
+              alt="Jan-Marlon Leibl - Fullstack Software Developer"
+              width="400"
+              height="400"
+              class="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <div class="space-y-2 text-center md:text-left">
+            <h3 class="font-['DM_Sans'] text-xl sm:text-2xl font-medium theme-primary">
+              Jan-Marlon Leibl
+            </h3>
+            <p class="font-['Instrument_Sans'] theme-text-70 text-base sm:text-lg">
+              Fullstack Developer
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+      
+      <FadeIn delay={0.2}>
+        <div class="space-y-10 sm:space-y-16 font-['Instrument_Sans']">
+          <div class="space-y-6 sm:space-y-8">
+            <p class="text-xl sm:text-2xl theme-text-90 leading-relaxed">
+              Hello! I'm Jan-Marlon, but please call me Jan. I started my journey in programming at the age of 11 with C#, fascinated by a desktop application my friend created.
+            </p>
+            <p class="text-base sm:text-xl theme-text-70 leading-relaxed">
+              Today, I specialize in PHP and TypeScript development, constantly pushing the boundaries of what's possible on the web. My journey has led me from creating simple applications to developing complex systems used by thousands.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16">
+            <div class="space-y-6 sm:space-y-8">
+              <div class="flex items-baseline gap-4">
+                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                  Technologies
+                </h3>
+                <div class="h-px grow theme-border"></div>
+              </div>
+              <ul class="space-y-4 sm:space-y-5">
+                {technologies.map((tech) => (
+                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default bg-white/[0.02] px-3 py-2 rounded-md">
+                    <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-colors">
+                      <tech.icon className="w-5 h-5" />
+                    </span>
+                    {tech.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="space-y-6 sm:space-y-8">
+              <div class="flex items-baseline gap-4">
+                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                  Interests
+                </h3>
+                <div class="h-px grow theme-border"></div>
+              </div>
+              <ul class="space-y-4 sm:space-y-5">
+                {interests.map((interest) => (
+                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default bg-white/[0.02] px-3 py-2 rounded-md">
+                    <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-colors">
+                      <interest.icon className="w-5 h-5" />
+                    </span>
+                    {interest.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6 sm:pt-8 flex flex-col sm:flex-row gap-3 sm:gap-6">
+            <a 
+              href="https://github.com/AtomicWasTaken" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center gap-2"
+            >
+              <FaGithub className="w-5 h-5" />
+              View GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/janmarlonleibl/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center gap-2"
+            >
+              <FaLinkedin className="w-5 h-5" />
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-button {
+    transition: transform 0.2s ease-out;
+  }
+  
+  .animate-button:hover {
+    transform: scale(1.02);
+  }
+</style> 
