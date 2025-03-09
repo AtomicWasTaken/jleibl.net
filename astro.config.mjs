@@ -21,6 +21,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
       allowedHosts: ['jleibl.net']
+    },
+    preview: {
+      allowedHosts: ['jleibl.net']
     }
   }
 });
