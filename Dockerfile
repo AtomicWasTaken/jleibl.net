@@ -10,9 +10,9 @@ ENV NODE_ENV=production
 COPY . .
 
 # Install dependencies
-RUN bun install --prod
+RUN bun install
 
-# Step 3: Build the Next.js application
+# Step 3: Build the Astro application
 RUN bun run build
 
 # Step 5: Set up the production image
@@ -30,5 +30,5 @@ RUN bun astro build
 # Expose the application port
 EXPOSE 4321
 
-# Start the Next.js application
-CMD ["bun", "preview"]
+# Start the Astro application
+CMD ["bun", "start", "-p", "4321", "--host"]
