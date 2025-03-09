@@ -31,4 +31,4 @@ RUN bun astro build
 EXPOSE 4321
 
 # Start the Astro application
-CMD ["bun", "start", "-p", "4321", "--host"]
+CMD ["bun", "preview", "--host"]
