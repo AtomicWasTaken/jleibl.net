@@ -31,4 +31,4 @@ RUN bun astro build
 EXPOSE 4321
 
 # Start the Next.js application
-CMD ["bun", "start", "-p", "3001"]
+CMD ["bun", "start"]
