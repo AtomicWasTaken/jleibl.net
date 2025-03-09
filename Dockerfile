@@ -25,7 +25,7 @@ COPY --from=build /app /app
 
 # Install only production dependencies
 RUN bun install --prod
-RUN bun next build
+RUN bun astro build
 
 # Expose the application port
 EXPOSE 3001
