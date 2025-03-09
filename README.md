@@ -1,40 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# jleibl.net - Personal Portfolio Website
 
-## Getting Started
+<div align="center">
+  <img src="public/profile-image.jpg" alt="Jan-Marlon Leibl" width="150" style="border-radius: 50%;" />
+  <h3>Jan-Marlon Leibl</h3>
+  <p>Fullstack Software Developer | PHP & TypeScript Expert</p>
+  <a href="https://jleibl.net" target="_blank">Live Website</a>
+</div>
 
-First, run the development server:
+## 🚀 About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is the personal portfolio website for Jan-Marlon Leibl, showcasing professional experience, skills, and projects. Built with modern web technologies for optimal performance and user experience.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Astro](https://astro.build) - The web framework for content-driven websites
+- **UI Libraries**: [React](https://react.dev) - For interactive components
+- **Styling**: [TailwindCSS](https://tailwindcss.com) - Utility-first CSS framework
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) - For smooth animations
+- **Fonts**: DM Sans, Instrument Sans
+- **Icons**: Astro Icon, React Icons
+- **Runtime**: [Bun](https://bun.sh) - Fast JavaScript runtime & package manager
+- **Deployment**: Docker containerization
+
+## 🏗️ Project Structure
+
+```
+/
+├── public/          # Static assets
+├── src/
+│   ├── components/  # UI components
+│   ├── pages/       # Page routes and templates
+│   └── styles/      # Global styles
+├── astro.config.mjs # Astro configuration
+└── package.json     # Project dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧞 Development
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+All commands use [Bun](https://bun.sh) as the package manager and runtime:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+# Install dependencies
+bun install
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+# Start development server
+bun dev
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Build for production
+bun build
 
-## Learn More
+# Preview production build locally
+bun preview
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🐳 Docker Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+The project includes a Dockerfile for containerized deployment:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Build the Docker image
+docker build -t jleibl-website .
 
-## Deploy on Vercel
+# Run the container
+docker run -p 4321:4321 jleibl-website
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+© 2025 Jan-Marlon Leibl. All rights reserved.
+
+## 🔗 Connect
+
+- Website: [jleibl.net](https://jleibl.net)
