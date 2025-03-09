@@ -20,10 +20,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: true
+      allowedHosts: '*'
     },
     preview: {
-      allowedHosts: true
+      allowedHosts: '*',
+      port: 4321
     }
   }
 });
