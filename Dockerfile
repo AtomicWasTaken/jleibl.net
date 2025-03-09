@@ -30,5 +30,9 @@ RUN bun astro build
 # Expose the application port
 EXPOSE 4321
 
+ENV ASTRO_TELEMENTRY_DISABLED=1
+ENV __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=jleibl.net
+ENV __VITE_ADDITIONAL_PREVIEW_ALLOWED_HOSTS=jleibl.net
+
 # Start the Astro application
 CMD ["bun", "preview", "--host"]

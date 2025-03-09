@@ -18,13 +18,6 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()],
-    server: {
-      allowedHosts: 'jleibl.net'
-    },
-    preview: {
-      allowedHosts: 'jleibl.net',
-      port: 4321
-    }
+    plugins: [tailwindcss()]
   }
 });
