@@ -35,4 +35,4 @@ ENV __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=jleibl.net
 ENV __VITE_ADDITIONAL_PREVIEW_ALLOWED_HOSTS=jleibl.net
 
 # Start the Astro application
-CMD ["bun", "preview", "--port", "4321"]
+CMD ["bun", "preview", "--port", "4321", "--host"]
