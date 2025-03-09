@@ -28,7 +28,7 @@ export const Header = () => {
         delay: 0.2
       }}
     >
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-(--breakpoint-xl) mx-auto">
         <nav className="py-5 px-6 sm:px-8 flex justify-between items-center font-['DM_Sans']" role="navigation" aria-label="Main navigation">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 group" aria-label="Home">

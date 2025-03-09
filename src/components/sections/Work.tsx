@@ -107,8 +107,8 @@ const sortedProjects = [...projects].sort((a, b) => {
 export const Work = () => {
   return (
     <section id="work" className="py-20 sm:py-40 px-4 sm:px-8 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none theme-bg-gradient"></div>
-      <div className="max-w-screen-xl mx-auto relative">
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none theme-bg-gradient"></div>
+      <div className="max-w-(--breakpoint-xl) mx-auto relative">
         <FadeIn>
           <div className="flex flex-col gap-3 mb-12 sm:mb-24">
             <span className="theme-text-40 uppercase tracking-[0.2em] text-sm sm:text-base font-['Instrument_Sans']">
@@ -118,7 +118,7 @@ export const Work = () => {
               <h2 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">
                 Selected Work
               </h2>
-              <div className="h-px flex-grow theme-border"></div>
+              <div className="h-px grow theme-border"></div>
             </div>
           </div>
         </FadeIn>
@@ -131,10 +131,10 @@ export const Work = () => {
                   <div className="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em] py-2 pr-4">
                     {project.year}
                   </div>
-                  <div className="h-px flex-grow theme-border"></div>
+                  <div className="h-px grow theme-border"></div>
                 </div>
 
-                <div className="pt-12 sm:pt-16 grid grid-cols-1 lg:grid-cols-[1.5fr,1fr] gap-6 sm:gap-16">
+                <div className="pt-12 sm:pt-16 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 sm:gap-16">
                   <div className="space-y-4 sm:space-y-8">
                     <h3 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary group-hover:theme-text-90 transition-colors">
                       {project.title}
@@ -153,7 +153,7 @@ export const Work = () => {
                         {project.tags.map((tag, tagIndex) => (
                           <span 
                             key={tagIndex} 
-                            className="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-wide py-1 sm:py-2 group-hover:theme-text-90 transition-colors bg-white/[0.02] px-3 sm:px-4 rounded-full shadow-sm"
+                            className="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-wide py-1 sm:py-2 group-hover:theme-text-90 transition-colors bg-white/[0.02] px-3 sm:px-4 rounded-full shadow-xs"
                           >
                             <span className="mr-2 flex items-center">{tag.icon}</span>
                             {tag.name}

@@ -6,7 +6,7 @@ export const Hero = () => {
   return (
     <section className="min-h-[100dvh] flex items-center px-4 sm:px-8 relative pt-24 sm:pt-8">
       <div className="absolute inset-0 theme-bg-gradient"></div>
-      <div className="max-w-screen-xl w-full relative pt-8 sm:pt-24">
+      <div className="max-w-(--breakpoint-xl) w-full relative pt-8 sm:pt-24">
         <FadeIn className="space-y-8 sm:space-y-16">
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-6 sm:space-y-8">

@@ -31,20 +31,20 @@ const interests: Interest[] = [
 export const About = () => {
   return (
     <section id="about" className="py-20 sm:py-40 px-4 sm:px-8 theme-bg-gradient">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-(--breakpoint-xl) mx-auto">
         <FadeIn>
           <div className="flex items-baseline gap-4 mb-12 sm:mb-24">
             <h2 className="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">
               About
             </h2>
-            <div className="h-px flex-grow bg-white/10 relative top-[-4px]"></div>
+            <div className="h-px grow bg-white/10 relative top-[-4px]"></div>
           </div>
         </FadeIn>
         
-        <div className="grid md:grid-cols-[1fr,2fr] gap-12 sm:gap-24">
+        <div className="grid md:grid-cols-[1fr_2fr] gap-12 sm:gap-24">
           <div className="space-y-6 sm:space-y-8">
             <FadeIn>
-              <div className="aspect-square bg-gradient-to-tr theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/10 transition-colors mx-auto md:mx-0 max-w-[280px] md:max-w-none">
+              <div className="aspect-square bg-linear-to-tr theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/10 transition-colors mx-auto md:mx-0 max-w-[280px] md:max-w-none">
                 <Image
                   src="/profile-image.jpg"
                   alt="Jan-Marlon Leibl - Fullstack Software Developer"
@@ -84,7 +84,7 @@ export const About = () => {
                     <h3 className="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
                       Technologies
                     </h3>
-                    <div className="h-px flex-grow theme-border"></div>
+                    <div className="h-px grow theme-border"></div>
                   </div>
                   <ul className="space-y-4 sm:space-y-5">
                     {technologies.map((tech) => (
@@ -104,7 +104,7 @@ export const About = () => {
                     <h3 className="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
                       Interests
                     </h3>
-                    <div className="h-px flex-grow theme-border"></div>
+                    <div className="h-px grow theme-border"></div>
                   </div>
                   <ul className="space-y-4 sm:space-y-5">
                     {interests.map((interest) => (

@@ -3,7 +3,7 @@ import { FadeIn } from '../ui/FadeIn';
 export const Footer = () => {
   return (
     <footer role="contentinfo" className="mt-20 sm:mt-32 theme-bg-gradient border-t theme-border">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-8 py-20 sm:py-32">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 sm:px-8 py-20 sm:py-32">
         <div className="grid gap-16 sm:gap-24">
           <FadeIn>
             <div className="text-center space-y-4 sm:space-y-5">

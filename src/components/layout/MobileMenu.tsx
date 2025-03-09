@@ -48,7 +48,7 @@ export const MobileMenu = () => {
         {isOpen && (
           <>
             <motion.div 
-              className="fixed inset-0 bg-black z-[90]"
+              className="fixed inset-0 bg-black z-90"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.95 }}
               exit={{ opacity: 0 }}
@@ -58,7 +58,7 @@ export const MobileMenu = () => {
             />
             
             <motion.div 
-              className="fixed top-0 bottom-0 right-0 w-full sm:w-80 z-[100] h-[100dvh]"
+              className="fixed top-0 bottom-0 right-0 w-full sm:w-80 z-100 h-[100dvh]"
               ref={menuRef}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -69,7 +69,7 @@ export const MobileMenu = () => {
                    style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
                 <motion.button 
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 p-2 theme-accent rounded-lg theme-border z-[110]"
+                  className="absolute top-4 right-4 p-2 theme-accent rounded-lg theme-border z-110"
                   aria-label="Close menu"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
