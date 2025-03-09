@@ -20,13 +20,24 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: ['jleibl.net'],
-      port: 4321
+      host: '0.0.0.0',
+      allowedHosts: true,
+      cors: {
+        origin: '*',
+        methods: ['GET'],
+        allowedHeaders: ['X-Requested-With']
+      }
     },
 
     preview: {
+      host: '0.0.0.0',
       allowedHosts: ['jleibl.net'],
-      port: 4321
+      port: 4321,
+      cors: {
+        origin: '*',
+        methods: ['GET'],
+        allowedHeaders: ['X-Requested-With']
+      }
     }
   }
 });
