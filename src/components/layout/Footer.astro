@@ -5,19 +5,22 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 <footer
   role="contentinfo"
-  class="mt-20 sm:mt-32 theme-bg-gradient border-t theme-border"
+  class="mt-20 sm:mt-40 relative"
 >
-  <div class="max-w-(--breakpoint-xl) mx-auto px-4 sm:px-8 py-20 sm:py-32">
+  <div class="absolute inset-0 theme-bg-gradient opacity-30"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  
+  <div class="max-w-(--breakpoint-xl) mx-auto px-4 sm:px-8 py-20 sm:py-32 relative">
     <div class="grid gap-16 sm:gap-24">
       <FadeIn>
-        <div class="text-center space-y-4 sm:space-y-5">
+        <div class="text-center space-y-5 sm:space-y-6">
           <h2
-            class="font-['DM_Sans'] text-4xl sm:text-7xl font-semibold tracking-tight theme-primary"
+            class="font-['DM_Sans'] text-4xl sm:text-6xl font-semibold tracking-tight theme-primary"
           >
             Let&apos;s Connect
           </h2>
           <p
-            class="font-['Instrument_Sans'] theme-text-70 text-lg sm:text-2xl max-w-2xl mx-auto"
+            class="font-['Instrument_Sans'] theme-text-70 text-lg sm:text-2xl max-w-2xl mx-auto leading-relaxed"
           >
             Always interested in new opportunities and collaborations.
           </p>
@@ -25,42 +28,44 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <div class="flex flex-col items-center gap-8 sm:gap-12 font-['Instrument_Sans']">
+        <div class="flex flex-col items-center gap-10 sm:gap-14 font-['Instrument_Sans']">
           <a
             href="mailto:jleibl@proton.me"
-            class="group flex items-center gap-3 text-xl sm:text-4xl theme-text-90 hover:theme-primary transition-colors"
+            class="group flex items-center gap-3 text-xl sm:text-3xl theme-text-90 hover:theme-primary transition-all hover:scale-105 duration-300"
           >
-            <FaEnvelope className="w-6 h-6 sm:w-8 sm:h-8" />
+            <span class="p-2 rounded-xl theme-bg-05 border theme-border">
+              <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6" />
+            </span>
             jleibl@proton.me
           </a>
           
-          <div class="flex gap-6 sm:gap-10">
+          <div class="flex gap-6 sm:gap-8">
             <a 
               href="https://github.com/AtomicWasTaken" 
               target="_blank"
               rel="noopener noreferrer"
-              class="group theme-text-70 hover:theme-primary transition-colors"
+              class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"
               aria-label="GitHub Profile"
             >
-              <FaGithub className="w-8 h-8 sm:w-10 sm:h-10" />
+              <FaGithub className="w-6 h-6 sm:w-7 sm:h-7" />
             </a>
             
             <a 
               href="https://www.linkedin.com/in/janmarlonleibl/" 
               target="_blank"
               rel="noopener noreferrer"
-              class="group theme-text-70 hover:theme-primary transition-colors"
+              class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"
               aria-label="LinkedIn Profile"
             >
-              <FaLinkedin className="w-8 h-8 sm:w-10 sm:h-10" />
+              <FaLinkedin className="w-6 h-6 sm:w-7 sm:h-7" />
             </a>
           </div>
         </div>
       </FadeIn>
 
       <FadeIn delay={0.2}>
-        <div class="pt-6 sm:pt-12 text-center">
-          <p class="font-['Instrument_Sans'] theme-text-40 text-xs sm:text-sm tracking-[0.1em]">
+        <div class="pt-8 sm:pt-16 text-center">
+          <p class="font-['Instrument_Sans'] theme-text-40 text-xs sm:text-sm tracking-wider">
             © {new Date().getFullYear()} Jan-Marlon Leibl. All rights reserved.
           </p>
         </div>

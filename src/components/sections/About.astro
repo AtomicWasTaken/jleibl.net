@@ -22,28 +22,31 @@ const interests = [
 ];
 ---
 
-<section id="about" class="py-20 sm:py-40 px-4 sm:px-8 theme-bg-gradient">
-  <div class="max-w-(--breakpoint-xl) mx-auto">
+<section id="about" class="py-24 sm:py-40 px-4 sm:px-8 relative">
+  <div class="absolute inset-0 theme-bg-gradient opacity-50"></div>
+  
+  <div class="max-w-(--breakpoint-xl) mx-auto relative">
     <FadeIn>
       <div class="flex items-baseline gap-4 mb-12 sm:mb-24">
-        <h2 class="font-['DM_Sans'] text-3xl sm:text-6xl font-semibold tracking-tight theme-primary">
+        <h2 class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary">
           About
         </h2>
-        <div class="h-px grow bg-white/10 relative top-[-4px]"></div>
+        <div class="h-px grow theme-border opacity-60"></div>
       </div>
     </FadeIn>
     
     <div class="grid md:grid-cols-[1fr_2fr] gap-12 sm:gap-24">
       <div class="space-y-6 sm:space-y-8">
         <FadeIn>
-          <div class="aspect-square bg-linear-to-tr theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/10 transition-colors mx-auto md:mx-0 max-w-[280px] md:max-w-none">
+          <div class="aspect-square theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/20 transition-all duration-300 shadow-md hover:shadow-lg mx-auto md:mx-0 max-w-[280px] md:max-w-none relative group">
             <Image
               src="/profile-image.jpg"
               alt="Jan-Marlon Leibl - Fullstack Software Developer"
               width="400"
               height="400"
-              class="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+              class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
             />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -72,14 +75,14 @@ const interests = [
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16">
             <div class="space-y-6 sm:space-y-8">
               <div class="flex items-baseline gap-4">
-                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium">
                   Technologies
                 </h3>
-                <div class="h-px grow theme-border"></div>
+                <div class="h-px grow theme-border opacity-30"></div>
               </div>
               <ul class="space-y-4 sm:space-y-5">
                 {technologies.map((tech) => (
-                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default bg-white/[0.02] px-3 py-2 rounded-md">
+                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default theme-bg-05 px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
                     <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-colors">
                       <tech.icon className="w-5 h-5" />
                     </span>
@@ -91,14 +94,14 @@ const interests = [
 
             <div class="space-y-6 sm:space-y-8">
               <div class="flex items-baseline gap-4">
-                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-[0.2em]">
+                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium">
                   Interests
                 </h3>
-                <div class="h-px grow theme-border"></div>
+                <div class="h-px grow theme-border opacity-30"></div>
               </div>
               <ul class="space-y-4 sm:space-y-5">
                 {interests.map((interest) => (
-                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default bg-white/[0.02] px-3 py-2 rounded-md">
+                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 transition-colors cursor-default theme-bg-05 px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
                     <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-colors">
                       <interest.icon className="w-5 h-5" />
                     </span>
@@ -109,12 +112,12 @@ const interests = [
             </div>
           </div>
 
-          <div class="pt-6 sm:pt-8 flex flex-col sm:flex-row gap-3 sm:gap-6">
+          <div class="pt-8 sm:pt-10 flex flex-col sm:flex-row gap-4 sm:gap-6">
             <a 
               href="https://github.com/AtomicWasTaken" 
               target="_blank"
               rel="noopener noreferrer"
-              class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center gap-2"
+              class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-xl theme-button-secondary hover:theme-bg-05 transition-all duration-300 text-sm sm:text-base tracking-tight font-medium flex items-center justify-center gap-2 shadow-sm"
             >
               <FaGithub className="w-5 h-5" />
               View GitHub
@@ -123,7 +126,7 @@ const interests = [
               href="https://www.linkedin.com/in/janmarlonleibl/" 
               target="_blank"
               rel="noopener noreferrer"
-              class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-lg sm:rounded-full hover:theme-bg-05 transition-colors text-sm sm:text-base tracking-wide font-medium theme-text-90 flex items-center justify-center gap-2"
+              class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-xl theme-button-secondary hover:theme-bg-05 transition-all duration-300 text-sm sm:text-base tracking-tight font-medium flex items-center justify-center gap-2 shadow-sm"
             >
               <FaLinkedin className="w-5 h-5" />
               Connect on LinkedIn
@@ -137,10 +140,14 @@ const interests = [
 
 <style>
   .animate-button {
-    transition: transform 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
   
   .animate-button:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+  }
+  
+  .animate-button:active {
+    transform: scale(0.98);
   }
 </style> 

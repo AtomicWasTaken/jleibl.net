@@ -7,25 +7,25 @@ import MobileMenu from './MobileMenu.astro';
   role="banner"
 >
   <div class="max-w-(--breakpoint-xl) mx-auto">
-    <nav class="py-5 px-6 sm:px-8 flex justify-between items-center font-['DM_Sans']" role="navigation" aria-label="Main navigation">
+    <nav class="py-4 px-6 sm:px-8 flex justify-between items-center font-['Instrument_Sans']" role="navigation" aria-label="Main navigation">
       <div class="flex items-center">
-        <a href="#hero" class="flex items-center gap-2 group" aria-label="Home">
-          <div class="relative w-10 h-10 rounded-full theme-accent flex items-center justify-center border theme-border overflow-hidden group-hover:border-opacity-80 transition-all duration-300">
-            <span class="text-lg font-bold tracking-tight theme-primary theme-transition">JL</span>
+        <a href="#hero" class="flex items-center gap-2.5 group" aria-label="Home">
+          <div class="relative w-9 h-9 rounded-xl theme-accent flex items-center justify-center border theme-border overflow-hidden group-hover:border-opacity-80 transition-all duration-300 shadow-sm">
+            <span class="text-base font-bold tracking-tight theme-primary theme-transition">JL</span>
             <div class="absolute inset-0 theme-bg-05 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
-          <span class="text-lg font-medium tracking-tight theme-primary theme-transition hidden sm:block">
+          <span class="text-base font-medium tracking-tight theme-primary theme-transition hidden sm:block">
             Jan-Marlon Leibl
           </span>
         </a>
       </div>
       
       <div class="hidden md:flex items-center">
-        <div class="flex bg-black/10 backdrop-blur-md rounded-full overflow-hidden theme-border border divide-x divide-white/5">
-          {["About", "Work"].map((item) => (
+        <div class="flex bg-black/5 backdrop-blur-md overflow-hidden theme-border border divide-x divide-white/5 shadow-sm rounded-xl">
+          {["About", "Work"].map((item, index) => (
             <a 
               href={`#${item.toLowerCase()}`} 
-              class="nav-item px-6 py-2 theme-secondary hover:theme-primary theme-transition"
+              class={`nav-item px-5 py-2 theme-secondary hover:theme-primary theme-transition ${index === 0 ? "rounded-l-xl rounded-r-none" : "rounded-r-xl rounded-l-none"}`}
               aria-label={`View my ${item.toLowerCase()}`}
             >
               {item}
@@ -36,14 +36,14 @@ import MobileMenu from './MobileMenu.astro';
         <div class="ml-6">
           <a 
             href="mailto:jleibl@proton.me" 
-            class="flex items-center gap-2 px-6 py-2 theme-bg-05 theme-primary border theme-border rounded-full hover:bg-opacity-100 transition-all duration-300 group"
+            class="flex items-center gap-2 px-5 py-2 theme-bg-05 theme-primary border theme-border rounded-xl hover:bg-opacity-100 transition-all duration-300 group shadow-sm"
             aria-label="Contact me via email"
           >
             <svg class="w-4 h-4 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            <span class="text-sm">Contact</span>
-            <div class="w-0 overflow-hidden group-hover:w-4 transition-all duration-500">
+            <span class="text-sm font-medium">Contact</span>
+            <div class="w-0 overflow-hidden group-hover:w-4 transition-all duration-300">
               <svg class="w-4 h-4 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -57,8 +57,6 @@ import MobileMenu from './MobileMenu.astro';
       </div>
     </nav>
   </div>
-  
-  <div class="h-px w-full theme-border opacity-50"></div>
 </header>
 
 <script>
@@ -68,6 +66,30 @@ import MobileMenu from './MobileMenu.astro';
       header.style.transform = 'translateY(0)';
       header.style.opacity = '1';
     }
+    
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      if (!header) return;
+      
+      const currentScrollY = window.scrollY;
+      
+      // Apply subtle shadow and border when scrolling down
+      if (currentScrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Hide header when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+    });
   });
 </script>
 
@@ -75,6 +97,15 @@ import MobileMenu from './MobileMenu.astro';
   header {
     transform: translateY(-100px);
     opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transition: transform 0.4s ease-out, opacity 0.5s ease-out, border 0.3s ease;
+  }
+  
+  header.scrolled {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-item {
+    border-radius: 0;
   }
 </style> 
