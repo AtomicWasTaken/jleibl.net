@@ -39,6 +39,7 @@ const blogPosts = [
             </h2>
             <p class="font-['Instrument_Sans'] theme-secondary text-lg sm:text-xl max-w-3xl mt-4">
               Thoughts, insights, and tutorials on software development and tech.
+<<<<<<< HEAD
               <span class="inline-flex items-center px-3 py-1 ml-2 rounded-full text-xs font-medium bg-black/20 text-white font-['Instrument_Sans']">Coming Soon</span>
             </p>
           </div>
@@ -75,6 +76,18 @@ const blogPosts = [
         {blogPosts.map((post) => (
           <div 
             class="flex flex-col h-full theme-accent border theme-border rounded-xl overflow-hidden opacity-80 group"
+=======
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {blogPosts.map((post) => (
+          <a 
+            href={`/blog/${post.slug}`} 
+            class="flex flex-col h-full theme-accent border theme-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
+>>>>>>> 69efdf7 (feat: add portfolio, blog, and contact features)
           >
             <div class="p-6 sm:p-8 flex flex-col h-full">
               <div class="flex-grow space-y-4">
@@ -84,16 +97,26 @@ const blogPosts = [
                       <span class="inline-flex px-2.5 py-1 rounded-lg text-xs font-medium theme-text-70 bg-black/10 font-['Instrument_Sans']">{tag}</span>
                     ))}
                   </div>
+<<<<<<< HEAD
                   <h3 class="text-xl font-bold theme-primary font-['DM_Sans']">{post.title}</h3>
+=======
+                  <h3 class="text-xl font-bold theme-primary group-hover:underline decoration-1 underline-offset-2 font-['DM_Sans']">{post.title}</h3>
+>>>>>>> 69efdf7 (feat: add portfolio, blog, and contact features)
                 </div>
                 <p class="theme-secondary font-['Instrument_Sans'] text-sm sm:text-base leading-relaxed">{post.excerpt}</p>
               </div>
               
               <div class="mt-6 pt-6 border-t theme-border flex items-center justify-between">
                 <span class="text-sm theme-text-70 font-['Instrument_Sans']">{post.date}</span>
+<<<<<<< HEAD
                 <div class="p-2 rounded-full theme-accent">
                   <svg 
                     class="w-4 h-4 theme-primary" 
+=======
+                <div class="p-2 rounded-full theme-accent group-hover:bg-opacity-100 transition-all">
+                  <svg 
+                    class="w-4 h-4 theme-primary transform group-hover:translate-x-1 transition-transform" 
+>>>>>>> 69efdf7 (feat: add portfolio, blog, and contact features)
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -104,6 +127,7 @@ const blogPosts = [
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
           </div>
         ))}
       </div>
@@ -127,6 +151,11 @@ const blogPosts = [
           </svg>
         </button>
       </div>
+=======
+          </a>
+        ))}
+      </div>
+>>>>>>> 69efdf7 (feat: add portfolio, blog, and contact features)
     </FadeIn>
   </div>
 </section> 
