@@ -79,10 +79,36 @@ const blogPosts = [
 =======
             </p>
           </div>
+          <div class="hidden sm:block">
+            <button 
+              class="animate-button inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border theme-border theme-text-50 rounded-xl transition-all text-sm tracking-tight font-medium shadow-sm font-['Instrument_Sans'] cursor-not-allowed opacity-75"
+              title="Coming soon!"
+            >
+              View All Posts
+              <svg 
+                class="w-4 h-4" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative p-12">
+        <div class="absolute inset-0 backdrop-blur-sm z-10 flex items-center justify-center rounded-xl">
+          <div class="bg-black/80 px-6 py-5 rounded-xl border border-white/20 text-center">
+            <span class="text-xl font-semibold text-white font-['DM_Sans']">Blog Coming Soon!</span>
+            <p class="text-white/80 mt-2 font-['Instrument_Sans']">The blog feature is currently in development.</p>
+          </div>
+        </div>
+        
         {blogPosts.map((post) => (
           <a 
             href={`/blog/${post.slug}`} 
