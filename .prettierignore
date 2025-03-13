@@ -1,0 +1,18 @@
+# Build directories
+dist/
+.astro/
+.next/
+
+# Node modules
+node_modules/
+
+# Package lock files
+bun.lock
+package-lock.json
+yarn.lock
+
+# Other generated files
+.DS_Store
+.env
+.env.*
+!.env.example 

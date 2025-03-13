@@ -1,132 +1,150 @@
 ---
-import FadeIn from '../ui/FadeIn.astro';
+import FadeIn from "../ui/FadeIn.astro";
 
 const blogPosts = [
   {
     title: "Best Practices for Modern PHP Development",
-    excerpt: "Explore how to leverage PHP 8.x features and modern tools to create maintainable and performant PHP applications.",
+    excerpt:
+      "Explore how to leverage PHP 8.x features and modern tools to create maintainable and performant PHP applications.",
     date: "May 15, 2023",
     slug: "best-practices-modern-php-development",
-    tags: ["PHP", "Development", "Best Practices"]
+    tags: ["PHP", "Development", "Best Practices"],
   },
   {
     title: "Building Type-Safe APIs with TypeScript",
-    excerpt: "How to use TypeScript's powerful type system to create robust and maintainable API integrations in your frontend applications.",
+    excerpt:
+      "How to use TypeScript's powerful type system to create robust and maintainable API integrations in your frontend applications.",
     date: "April 3, 2023",
     slug: "building-type-safe-apis-typescript",
-    tags: ["TypeScript", "API", "Frontend"]
+    tags: ["TypeScript", "API", "Frontend"],
   },
   {
     title: "Performance Optimization Techniques for Web Applications",
-    excerpt: "A comprehensive guide to identifying and solving performance bottlenecks in modern web applications.",
+    excerpt:
+      "A comprehensive guide to identifying and solving performance bottlenecks in modern web applications.",
     date: "March 12, 2023",
     slug: "performance-optimization-web-applications",
-    tags: ["Performance", "Web", "Optimization"]
-  }
+    tags: ["Performance", "Web", "Optimization"],
+  },
 ];
 ---
 
 <section id="blog" class="py-20 sm:py-32 px-4 sm:px-8 relative">
   <div class="absolute inset-0 theme-bg-gradient opacity-30"></div>
-  
+
   <div class="max-w-7xl mx-auto relative">
     <FadeIn className="space-y-16">
       <div class="space-y-6">
         <div class="flex items-center justify-between">
           <div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-['DM_Sans'] tracking-tight theme-primary">
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl font-bold font-['DM_Sans'] tracking-tight theme-primary"
+            >
               Blog
             </h2>
             <p class="font-['Instrument_Sans'] theme-secondary text-lg sm:text-xl max-w-3xl mt-4">
               Thoughts, insights, and tutorials on software development and tech.
-              <span class="inline-flex items-center px-3 py-1 ml-2 rounded-full text-xs font-medium bg-black/20 text-white font-['Instrument_Sans']">Coming Soon</span>
             </p>
           </div>
           <div class="hidden sm:block">
-            <button 
+            <button
               class="animate-button inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border theme-border theme-text-50 rounded-xl transition-all text-sm tracking-tight font-medium shadow-sm font-['Instrument_Sans'] cursor-not-allowed opacity-75"
               title="Coming soon!"
             >
               View All Posts
-              <svg 
-                class="w-4 h-4" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 stroke-width="2"
-                stroke-linecap="round" 
+                stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
             </button>
           </div>
         </div>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative p-12">
-        <div class="absolute inset-0 backdrop-blur-sm z-10 flex items-center justify-center rounded-xl">
+        <div
+          class="absolute inset-0 backdrop-blur-sm z-10 flex items-center justify-center rounded-xl"
+        >
           <div class="bg-black/80 px-6 py-5 rounded-xl border border-white/20 text-center">
             <span class="text-xl font-semibold text-white font-['DM_Sans']">Blog Coming Soon!</span>
-            <p class="text-white/80 mt-2 font-['Instrument_Sans']">The blog feature is currently in development.</p>
+            <p class="text-white/80 mt-2 font-['Instrument_Sans']">
+              The blog feature is currently in development.
+            </p>
           </div>
         </div>
-        
-        {blogPosts.map((post) => (
-          <div 
-            class="flex flex-col h-full theme-accent border theme-border rounded-xl overflow-hidden opacity-80 group"
-          >
-            <div class="p-6 sm:p-8 flex flex-col h-full">
-              <div class="flex-grow space-y-4">
-                <div class="space-y-1.5">
-                  <div class="flex gap-2 flex-wrap">
-                    {post.tags.map((tag) => (
-                      <span class="inline-flex px-2.5 py-1 rounded-lg text-xs font-medium theme-text-70 bg-black/10 font-['Instrument_Sans']">{tag}</span>
-                    ))}
+
+        {
+          blogPosts.map((post) => (
+            <a
+              href={`/blog/${post.slug}`}
+              class="flex flex-col h-full theme-accent border theme-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
+            >
+              <div class="p-6 sm:p-8 flex flex-col h-full">
+                <div class="flex-grow space-y-4">
+                  <div class="space-y-1.5">
+                    <div class="flex gap-2 flex-wrap">
+                      {post.tags.map((tag) => (
+                        <span class="inline-flex px-2.5 py-1 rounded-lg text-xs font-medium theme-text-70 bg-black/10 font-['Instrument_Sans']">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 class="text-xl font-bold theme-primary group-hover:underline decoration-1 underline-offset-2 font-['DM_Sans']">
+                      {post.title}
+                    </h3>
                   </div>
-                  <h3 class="text-xl font-bold theme-primary font-['DM_Sans']">{post.title}</h3>
+                  <p class="theme-secondary font-['Instrument_Sans'] text-sm sm:text-base leading-relaxed">
+                    {post.excerpt}
+                  </p>
                 </div>
-                <p class="theme-secondary font-['Instrument_Sans'] text-sm sm:text-base leading-relaxed">{post.excerpt}</p>
-              </div>
-              
-              <div class="mt-6 pt-6 border-t theme-border flex items-center justify-between">
-                <span class="text-sm theme-text-70 font-['Instrument_Sans']">{post.date}</span>
-                <div class="p-2 rounded-full theme-accent">
-                  <svg 
-                    class="w-4 h-4 theme-primary" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    stroke-width="2"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+
+                <div class="mt-6 pt-6 border-t theme-border flex items-center justify-between">
+                  <span class="text-sm theme-text-70 font-['Instrument_Sans']">{post.date}</span>
+                  <div class="p-2 rounded-full theme-accent group-hover:bg-opacity-100 transition-all">
+                    <svg
+                      class="w-4 h-4 theme-primary transform group-hover:translate-x-1 transition-transform"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </a>
+          ))
+        }
       </div>
-      
+
       <div class="sm:hidden flex justify-center mt-8">
-        <button 
+        <button
           class="animate-button inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border theme-border theme-text-50 rounded-xl transition-all text-base tracking-tight font-medium shadow-sm font-['Instrument_Sans'] cursor-not-allowed opacity-75"
           title="Coming soon!"
         >
           View All Posts
-          <svg 
-            class="w-5 h-5" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
             stroke-width="2"
-            stroke-linecap="round" 
+            stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </button>
       </div>
     </FadeIn>
   </div>
-</section> 
+</section>
+

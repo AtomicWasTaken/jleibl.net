@@ -1,49 +1,66 @@
 ---
-import FadeIn from '../ui/FadeIn.astro';
-import GermanyFlag from '../ui/GermanyFlag.astro';
+import FadeIn from "../ui/FadeIn.astro";
+import GermanyFlag from "../ui/GermanyFlag.astro";
 ---
 
-<section class="min-h-[100dvh] flex items-center justify-center px-4 sm:px-8 relative pt-24 pb-16" id="hero">
+<section
+  class="min-h-[100dvh] flex items-center justify-center px-4 sm:px-8 relative pt-24 pb-16"
+  id="hero"
+>
   <div class="absolute inset-0 theme-bg-gradient opacity-80"></div>
-  
+
   <div class="max-w-7xl w-full relative pt-8 sm:pt-4">
     <FadeIn className="space-y-10 sm:space-y-16">
       <div class="space-y-8 sm:space-y-10">
         <div class="space-y-6 sm:space-y-8">
-          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl theme-accent theme-border border theme-transition shadow-sm">
+          <div
+            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl theme-accent theme-border border theme-transition shadow-sm"
+          >
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="theme-secondary uppercase tracking-wider text-xs sm:text-sm font-medium font-['Instrument_Sans']">Available for Work</span>
+            <span
+              class="theme-secondary uppercase tracking-wider text-xs sm:text-sm font-medium font-['Instrument_Sans']"
+              >Available for Work</span
+            >
           </div>
           <div class="space-y-3 sm:space-y-4">
-            <h2 class="font-['Instrument_Sans'] text-xl sm:text-2xl theme-secondary tracking-tight font-medium theme-transition">
+            <h2
+              class="font-['Instrument_Sans'] text-xl sm:text-2xl theme-secondary tracking-tight font-medium theme-transition"
+            >
               Jan-Marlon Leibl
             </h2>
             <div>
-              <h1 class="font-['DM_Sans'] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] sm:leading-[0.95] max-w-4xl theme-primary theme-transition">
+              <h1
+                class="font-['DM_Sans'] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] sm:leading-[0.95] max-w-4xl theme-primary theme-transition"
+              >
                 Software Developer
                 <br />
-                <span class="theme-secondary inline-flex items-center gap-2">based in <GermanyFlag /></span>
+                <span class="theme-secondary inline-flex items-center gap-2"
+                  >based in <GermanyFlag /></span
+                >
               </h1>
             </div>
           </div>
         </div>
-        <p class="font-['Instrument_Sans'] theme-secondary text-lg sm:text-2xl max-w-2xl leading-relaxed tracking-tight theme-transition">
-          Passionate about creating digital experiences, with a focus on PHP and modern web technologies.
+        <p
+          class="font-['Instrument_Sans'] theme-secondary text-lg sm:text-2xl max-w-2xl leading-relaxed tracking-tight theme-transition"
+        >
+          Passionate about creating digital experiences, with a focus on PHP and modern web
+          technologies.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
-          <a 
+          <a
             href="#work"
             class="animate-button w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 theme-button-primary rounded-xl transition-all text-sm sm:text-base tracking-tight font-medium group shadow-sm"
           >
             View My Work
-            <svg 
-              class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
               stroke-width="2"
             >
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </a>
           <a
@@ -51,49 +68,62 @@ import GermanyFlag from '../ui/GermanyFlag.astro';
             class="animate-button w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-xl theme-button-secondary hover:theme-bg-05 transition-all text-sm sm:text-base tracking-tight font-medium group shadow-sm"
           >
             Get in Touch
-            <svg 
-              class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
               stroke-width="2"
             >
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </a>
         </div>
       </div>
 
       <div class="border-t theme-border pt-8 mt-10">
-        <div class="grid grid-cols-1 sm:grid-cols-3 w-full gap-6 sm:gap-0 py-6 sm:py-8 font-['Instrument_Sans'] text-center">
-          <div class="sm:border-r theme-border last:border-r-0 px-4 flex flex-col items-center justify-center">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 w-full gap-6 sm:gap-0 py-6 sm:py-8 font-['Instrument_Sans'] text-center"
+        >
+          <div
+            class="sm:border-r theme-border last:border-r-0 px-4 flex flex-col items-center justify-center"
+          >
             <div class="mb-3 sm:mb-4 w-full text-center">
-              <span class="theme-text-40 uppercase tracking-wider text-xs sm:text-sm font-medium block">EMAIL</span>
+              <span
+                class="theme-text-40 uppercase tracking-wider text-xs sm:text-sm font-medium block"
+                >EMAIL</span
+              >
             </div>
-            <a 
-              href="mailto:jleibl@proton.me" 
+            <a
+              href="mailto:jleibl@proton.me"
               class="theme-text-90 hover:theme-primary transition-colors text-base sm:text-lg block w-full"
             >
               jleibl@proton.me
             </a>
           </div>
-          
-          <div class="sm:border-r theme-border last:border-r-0 px-4 flex flex-col items-center justify-center">
+
+          <div
+            class="sm:border-r theme-border last:border-r-0 px-4 flex flex-col items-center justify-center"
+          >
             <div class="mb-3 sm:mb-4 w-full text-center">
-              <span class="theme-text-40 uppercase tracking-wider text-xs sm:text-sm font-medium block">ROLE</span>
+              <span
+                class="theme-text-40 uppercase tracking-wider text-xs sm:text-sm font-medium block"
+                >ROLE</span
+              >
             </div>
             <span class="theme-text-90 text-base sm:text-lg block w-full">
               Fullstack Developer
             </span>
           </div>
-          
+
           <div class="px-4 flex flex-col items-center justify-center">
             <div class="mb-3 sm:mb-4 w-full text-center">
-              <span class="theme-text-40 uppercase tracking-wider text-xs sm:text-sm font-medium block">EXPERIENCE</span>
+              <span
+                class="theme-text-40 uppercase tracking-wider text-xs sm:text-sm font-medium block"
+                >EXPERIENCE</span
+              >
             </div>
-            <span class="theme-text-90 text-base sm:text-lg block w-full">
-              5+ Years
-            </span>
+            <span class="theme-text-90 text-base sm:text-lg block w-full"> 5+ Years </span>
           </div>
         </div>
       </div>
@@ -105,11 +135,11 @@ import GermanyFlag from '../ui/GermanyFlag.astro';
   .animate-button {
     transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  
+
   .animate-button:hover {
     transform: translateY(-2px);
   }
-  
+
   .animate-button:active {
     transform: scale(0.98);
   }
