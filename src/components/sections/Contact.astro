@@ -1,0 +1,179 @@
+---
+import FadeIn from '../ui/FadeIn.astro';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
+---
+
+<section id="contact" class="py-20 sm:py-32 px-4 sm:px-8 relative">
+  <div class="absolute inset-0 theme-bg-gradient opacity-30"></div>
+  
+  <div class="max-w-7xl mx-auto relative">
+    <FadeIn className="space-y-16">
+      <div class="space-y-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-['DM_Sans'] tracking-tight theme-primary">
+          Get In Touch
+        </h2>
+        <p class="font-['Instrument_Sans'] theme-secondary text-lg sm:text-xl max-w-3xl">
+          Have a project in mind or want to chat? Feel free to reach out.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+        <div class="space-y-8">
+          <form id="contact-form" class="space-y-6" onsubmit="return openEmailClient(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block mb-2 text-sm font-medium theme-secondary font-['Instrument_Sans']">Your Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="w-full px-4 py-3 rounded-xl theme-accent border theme-border theme-secondary focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all bg-transparent font-['Instrument_Sans']"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div>
+                <label for="email" class="block mb-2 text-sm font-medium theme-secondary font-['Instrument_Sans']">Your Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="w-full px-4 py-3 rounded-xl theme-accent border theme-border theme-secondary focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all bg-transparent font-['Instrument_Sans']"
+                  required
+                  aria-required="true"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block mb-2 text-sm font-medium theme-secondary font-['Instrument_Sans']">Subject</label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                class="w-full px-4 py-3 rounded-xl theme-accent border theme-border theme-secondary focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all bg-transparent font-['Instrument_Sans']"
+              />
+            </div>
+            <div>
+              <label for="message" class="block mb-2 text-sm font-medium theme-secondary font-['Instrument_Sans']">Your Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                class="w-full px-4 py-3 rounded-xl theme-accent border theme-border theme-secondary focus:ring-2 focus:ring-white/20 focus:border-white/30 bg-transparent font-['Instrument_Sans']"
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+            <div>
+              <button 
+                type="submit" 
+                class="animate-button w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 theme-button-primary rounded-xl transition-all text-base tracking-tight font-medium group shadow-sm font-['Instrument_Sans']"
+              >
+                Send Message
+                <svg 
+                  class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="2"
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+              <div id="form-status" class="mt-4 text-sm hidden font-['Instrument_Sans']"></div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-2xl font-semibold theme-primary mb-4 font-['DM_Sans']">Contact Information</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <span class="p-2 rounded-xl theme-bg-05 border theme-border theme-text-70 mt-1">
+                  <FaEnvelope className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 class="theme-secondary font-medium font-['Instrument_Sans']">Email</h4>
+                  <a href="mailto:jleibl@proton.me" class="theme-primary hover:underline font-['Instrument_Sans']">jleibl@proton.me</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="p-2 rounded-xl theme-bg-05 border theme-border theme-text-70 mt-1">
+                  <FaMapMarkerAlt className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 class="theme-secondary font-medium font-['Instrument_Sans']">Location</h4>
+                  <p class="theme-primary font-['Instrument_Sans']">Bremen, Germany</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-semibold theme-primary mb-4 font-['DM_Sans']">Connect</h3>
+            <div class="flex flex-wrap gap-4">
+              <a 
+                href="https://github.com/AtomicWasTaken" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+                class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"
+              >
+                <FaGithub className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/janmarlonleibl/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+                class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://jleibl.net" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="My website"
+                class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"
+              >
+                <FaGlobe className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </FadeIn>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    (window as any).openEmailClient = (e: Event) => {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target as HTMLFormElement);
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const subject = formData.get('subject') as string || 'Contact Form Message';
+      const message = formData.get('message') as string;
+      
+      const formStatus = document.getElementById('form-status');
+      if (!name || !email || !message) {
+        if (formStatus) {
+          formStatus.textContent = 'Please fill in all required fields.';
+          formStatus.classList.remove('hidden');
+        }
+        return false;
+      }
+      
+      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+      window.location.href = `mailto:jleibl@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      return false;
+    };
+  });
+</script> 

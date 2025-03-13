@@ -6,7 +6,7 @@ import MobileMenu from './MobileMenu.astro';
   class="fixed top-0 left-0 right-0 z-40 nav-glass backdrop-blur-lg theme-transition"
   role="banner"
 >
-  <div class="max-w-(--breakpoint-xl) mx-auto">
+  <div class="max-w-7xl mx-auto">
     <nav class="py-4 px-6 sm:px-8 flex justify-between items-center font-['Instrument_Sans']" role="navigation" aria-label="Main navigation">
       <div class="flex items-center">
         <a href="#hero" class="flex items-center gap-2.5 group" aria-label="Home">
@@ -22,10 +22,10 @@ import MobileMenu from './MobileMenu.astro';
       
       <div class="hidden md:flex items-center">
         <div class="flex bg-black/5 backdrop-blur-md overflow-hidden theme-border border divide-x divide-white/5 shadow-sm rounded-xl">
-          {["About", "Work"].map((item, index) => (
+          {["About", "Work", "Blog", "Contact"].map((item, index) => (
             <a 
               href={`#${item.toLowerCase()}`} 
-              class={`nav-item px-5 py-2 theme-secondary hover:theme-primary theme-transition ${index === 0 ? "rounded-l-xl rounded-r-none" : "rounded-r-xl rounded-l-none"}`}
+              class={`nav-item px-5 py-2 theme-secondary hover:theme-primary theme-transition ${index === 0 ? "rounded-l-xl" : ""} ${index === 3 ? "rounded-r-xl" : ""}`}
               aria-label={`View my ${item.toLowerCase()}`}
             >
               {item}
@@ -33,18 +33,34 @@ import MobileMenu from './MobileMenu.astro';
           ))}
         </div>
         
-        <div class="ml-6">
+        <div class="flex items-center gap-4 ml-6">        
           <a 
             href="mailto:jleibl@proton.me" 
             class="flex items-center gap-2 px-5 py-2 theme-bg-05 theme-primary border theme-border rounded-xl hover:bg-opacity-100 transition-all duration-300 group shadow-sm"
             aria-label="Contact me via email"
           >
-            <svg class="w-4 h-4 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg 
+              class="w-4 h-4 theme-primary" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+              stroke-linecap="round" 
+              stroke-linejoin="round"
+            >
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
             <span class="text-sm font-medium">Contact</span>
             <div class="w-0 overflow-hidden group-hover:w-4 transition-all duration-300">
-              <svg class="w-4 h-4 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg 
+                class="w-4 h-4 theme-primary" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </div>
@@ -62,33 +78,71 @@ import MobileMenu from './MobileMenu.astro';
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
-    if (header) {
-      header.style.transform = 'translateY(0)';
-      header.style.opacity = '1';
-    }
+    if (!header) return;
+    
+    header.style.transform = 'translateY(0)';
+    header.style.opacity = '1';
     
     let lastScrollY = window.scrollY;
+    const scrollThreshold = 100;
+    let isHeaderVisible = true;
+    
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    function setActiveNavItem() {
+      const scrollPosition = window.scrollY + 200;
+      
+      navItems.forEach(item => {
+        item.classList.remove('nav-item-active');
+        item.removeAttribute('aria-current');
+      });
+      
+      let currentSection: string | null = null;
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        const sectionHeight = section.getBoundingClientRect().height;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      if (currentSection) {
+        navItems.forEach(item => {
+          const href = item.getAttribute('href')?.substring(1);
+          if (href === currentSection) {
+            item.classList.add('nav-item-active');
+            item.setAttribute('aria-current', 'true');
+          }
+        });
+      }
+    }
     
     window.addEventListener('scroll', () => {
-      if (!header) return;
-      
       const currentScrollY = window.scrollY;
       
-      // Apply subtle shadow and border when scrolling down
       if (currentScrollY > 20) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
       
-      // Hide header when scrolling down, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        header.style.transform = 'translateY(-100%)';
-      } else {
-        header.style.transform = 'translateY(0)';
-      }
-      
       lastScrollY = currentScrollY;
+      
+      setActiveNavItem();
+    });
+    
+    setActiveNavItem();
+    
+    navItems.forEach(item => {
+      item.addEventListener('keydown', (e) => {
+        if (e instanceof KeyboardEvent && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          item.dispatchEvent(new MouseEvent('click'));
+        }
+      });
     });
   });
 </script>
@@ -101,11 +155,46 @@ import MobileMenu from './MobileMenu.astro';
   }
   
   header.scrolled {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   
   .nav-item {
-    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .black .nav-item::after {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .red .nav-item::after {
+    background-color: rgba(248, 113, 113, 0.8);
+  }
+  .gold .nav-item::after {
+    background-color: rgba(251, 191, 36, 0.8);
+  }
+  
+  .nav-item:hover::after {
+    transform: translateX(0);
+  }
+  
+  .nav-item-active {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .nav-item-active::after {
+    transform: translateX(0);
   }
 </style> 

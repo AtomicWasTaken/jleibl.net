@@ -1,0 +1,49 @@
+{
+  "name": "Jan-Marlon Leibl | Fullstack Developer",
+  "short_name": "JL Portfolio",
+  "description": "Personal website and portfolio of Jan-Marlon Leibl, Fullstack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "orientation": "portrait-primary",
+  "screenshots": [
+    {
+      "src": "/screenshots/mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Jan-Marlon Leibl's Portfolio (Mobile)"
+    },
+    {
+      "src": "/screenshots/desktop.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Jan-Marlon Leibl's Portfolio (Desktop)"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "About Me",
+      "short_name": "About",
+      "description": "Learn more about Jan-Marlon Leibl",
+      "url": "/#about",
+      "icons": [{ "src": "/icons/about-icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Work",
+      "short_name": "Work",
+      "description": "View Jan-Marlon's portfolio projects",
+      "url": "/#work",
+      "icons": [{ "src": "/icons/work-icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with Jan-Marlon",
+      "url": "/#contact",
+      "icons": [{ "src": "/icons/contact-icon.png", "sizes": "192x192" }]
+    }
+  ]
+} 

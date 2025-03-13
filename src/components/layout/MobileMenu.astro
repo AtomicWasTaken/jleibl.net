@@ -1,70 +1,75 @@
 ---
-import GermanyFlag from '../ui/GermanyFlag.astro';
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" }
+];
 ---
 
-<div class="mobile-menu">
-  <button
-    id="mobile-menu-toggle"
-    class="p-2.5 theme-accent rounded-xl theme-border border shadow-sm hover:theme-bg-05 transition-all duration-300"
-    aria-label="Open menu"
+<div class="mobile-menu-container">
+  <button 
+    id="menu-toggle" 
+    class="p-2 theme-accent rounded-xl flex flex-col justify-center items-center gap-1.5 border theme-border overflow-hidden"
+    aria-label="Toggle mobile menu"
     aria-expanded="false"
+    aria-controls="mobile-nav"
   >
-    <svg class="w-5 h-5 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
+    <span class="block w-5 h-0.5 theme-primary transition-all duration-300 transform bar-1"></span>
+    <span class="block w-5 h-0.5 theme-primary transition-all duration-300 transform bar-2"></span>
+    <span class="block w-5 h-0.5 theme-primary transition-all duration-300 transform bar-3"></span>
   </button>
   
-  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black opacity-0 z-90 pointer-events-none transition-opacity duration-300"></div>
-  
-  <div id="mobile-menu-panel" class="fixed top-0 bottom-0 right-0 w-full sm:w-80 z-100 h-[100dvh] translate-x-full transition-transform duration-300">
-    <div class="nav-glass w-full h-full flex flex-col shadow-2xl" style="backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
-      <button 
-        id="mobile-menu-close"
-        class="absolute top-4 right-4 p-2.5 theme-accent rounded-xl theme-border border z-110 shadow-sm hover:theme-bg-05 transition-all duration-300"
-        aria-label="Close menu"
-      >
-        <svg class="w-5 h-5 theme-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+  <div 
+    id="mobile-nav" 
+    class="fixed inset-0 z-50 invisible opacity-0 flex flex-col justify-start items-stretch pt-24 nav-glass transition-all duration-300 transform translate-x-full"
+    aria-hidden="true"
+  >
+    <nav class="px-6 sm:px-8 pt-6 pb-12 flex flex-col gap-4">
+      {navItems.map((item) => (
+        <a 
+          href={item.href} 
+          class="mobile-nav-item py-3 px-6 theme-secondary text-lg font-medium rounded-xl theme-accent border theme-border transition-all duration-300 hover:theme-primary"
+          aria-label={`Go to ${item.label} section`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
     
-      <div class="w-full h-full p-6 pt-16 flex flex-col overflow-y-auto">
-        <nav class="mb-8">
-          <div class="flex flex-col space-y-3">
-            {[
-              { href: "#about", label: "About" },
-              { href: "#work", label: "Work" }
-            ].map((item) => (
-              <a
-                href={item.href}
-                class="menu-link p-4 text-xl font-medium theme-primary rounded-xl theme-bg-05 border theme-border flex items-center hover:bg-white/[0.03] transition-all duration-300 shadow-sm"
-              >
-                <span>{item.label}</span>
-                <svg class="ml-auto w-5 h-5 theme-primary opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            ))}
-          </div>
-        </nav>
+    <div class="px-6 sm:px-8 py-6 mt-auto border-t theme-border flex flex-col gap-5">
+      <a 
+        href="mailto:jleibl@proton.me" 
+        class="flex items-center justify-center gap-2 py-3 bg-white/10 text-white rounded-xl hover:bg-white/15 transition-all duration-300 shadow-sm"
+        aria-label="Contact me via email"
+      >
+        <span class="p-1 rounded-lg bg-white/5">
+          <FaEnvelope className="w-5 h-5" />
+        </span>
+        <span class="text-base font-medium font-['Instrument_Sans']">Contact Me</span>
+      </a>
       
-        <div class="mt-auto">
-          <div class="pt-6 border-t theme-border">
-            <a 
-              href="mailto:jleibl@proton.me" 
-              class="flex items-center justify-center gap-3 w-full py-4 px-6 theme-button-primary rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
-            >
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              <span class="font-medium">Contact Me</span>
-            </a>
-          </div>
-        
-          <div class="pt-8 flex justify-center pb-6 opacity-70">
-            <GermanyFlag />
-          </div>
-        </div>
+      <div class="flex gap-4 justify-center mt-2">
+        <a 
+          href="https://github.com/AtomicWasTaken" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
+          class="p-3 rounded-xl bg-black/10 hover:bg-black/15 transition-all"
+        >
+          <FaGithub className="w-5 h-5 text-white" />
+        </a>
+        <a 
+          href="https://www.linkedin.com/in/janmarlonleibl/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+          class="p-3 rounded-xl bg-black/10 hover:bg-black/15 transition-all"
+        >
+          <FaLinkedin className="w-5 h-5 text-white" />
+        </a>
       </div>
     </div>
   </div>
@@ -72,37 +77,92 @@ import GermanyFlag from '../ui/GermanyFlag.astro';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('mobile-menu-toggle');
-    const close = document.getElementById('mobile-menu-close');
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const panel = document.getElementById('mobile-menu-panel');
-    const menuLinks = document.querySelectorAll('.menu-link');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+    let isMenuOpen = false;
     
-    function openMenu() {
-      document.body.style.overflow = 'hidden';
-      toggle?.setAttribute('aria-expanded', 'true');
-      overlay?.classList.remove('opacity-0', 'pointer-events-none');
-      overlay?.classList.add('opacity-90');
-      panel?.classList.remove('translate-x-full');
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', isMenuOpen.toString());
+        menuToggle.classList.toggle('active', isMenuOpen);
+      }
+      
+      if (mobileNav) {
+        mobileNav.setAttribute('aria-hidden', (!isMenuOpen).toString());
+        
+        if (isMenuOpen) {
+          mobileNav.classList.remove('invisible', 'opacity-0', 'translate-x-full');
+          mobileNav.classList.add('opacity-100', 'translate-x-0');
+          document.body.style.overflow = 'hidden';
+          
+          mobileNavItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('show');
+            }, 100 + (index * 50));
+          });
+        } else {
+          mobileNav.classList.remove('opacity-100', 'translate-x-0');
+          mobileNav.classList.add('opacity-0', 'translate-x-full');
+          document.body.style.overflow = '';
+          
+          setTimeout(() => {
+            if (!isMenuOpen) {
+              mobileNav.classList.add('invisible');
+              mobileNavItems.forEach(item => {
+                item.classList.remove('show');
+              });
+            }
+          }, 300);
+        }
+      }
     }
     
-    function closeMenu() {
-      document.body.style.overflow = '';
-      toggle?.setAttribute('aria-expanded', 'false');
-      overlay?.classList.add('opacity-0', 'pointer-events-none');
-      overlay?.classList.remove('opacity-90');
-      panel?.classList.add('translate-x-full');
-    }
+    menuToggle?.addEventListener('click', toggleMenu);
     
-    toggle?.addEventListener('click', openMenu);
-    close?.addEventListener('click', closeMenu);
-    overlay?.addEventListener('click', closeMenu);
-    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+    mobileNavItems.forEach(item => {
+      item.addEventListener('click', () => {
+        toggleMenu();
+      });
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (isMenuOpen && mobileNav && e.target instanceof Node && !mobileNav.contains(e.target) && e.target !== menuToggle) {
+        toggleMenu();
+      }
+    });
     
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
-        closeMenu();
+      if (isMenuOpen && e.key === 'Escape') {
+        toggleMenu();
       }
     });
   });
-</script> 
+</script>
+
+<style>
+  #menu-toggle.active .bar-1 {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  #menu-toggle.active .bar-2 {
+    opacity: 0;
+  }
+  
+  #menu-toggle.active .bar-3 {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .mobile-nav-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .mobile-nav-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style> 
