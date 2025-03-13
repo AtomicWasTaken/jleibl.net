@@ -1,6 +1,7 @@
 ---
 const defaultTitle = "Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert";
-const defaultDescription = "Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies.";
+const defaultDescription =
+  "Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies.";
 const defaultImage = "/images/profile-image.jpg";
 const siteUrl = "https://jleibl.net";
 
@@ -24,51 +25,48 @@ const {
   publishedDate,
   modifiedDate,
   keywords = [
-    "Software Development", 
-    "PHP Developer", 
-    "TypeScript", 
-    "Fullstack Engineer", 
-    "Web Development", 
-    "System Architecture", 
-    "MySQL", 
-    "React", 
-    "Performance Optimization"
-  ]
+    "Software Development",
+    "PHP Developer",
+    "TypeScript",
+    "Fullstack Engineer",
+    "Web Development",
+    "System Architecture",
+    "MySQL",
+    "React",
+    "Performance Optimization",
+  ],
 } = Astro.props;
 
 const structuredDataPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Jan-Marlon Leibl",
-  "url": siteUrl,
-  "image": `${siteUrl}${image}`,
-  "jobTitle": "Fullstack Software Developer",
-  "worksFor": {
+  name: "Jan-Marlon Leibl",
+  url: siteUrl,
+  image: `${siteUrl}${image}`,
+  jobTitle: "Fullstack Software Developer",
+  worksFor: {
     "@type": "Organization",
-    "name": "team neusta"
+    name: "team neusta",
   },
-  "description": "Fullstack Software Developer specializing in PHP and TypeScript",
-  "sameAs": [
-    "https://github.com/AtomicWasTaken",
-    "https://www.linkedin.com/in/janmarlonleibl/",
-  ],
-  "knowsAbout": ["PHP", "TypeScript", "Web Development", "System Architecture", "Database Design"]
+  description: "Fullstack Software Developer specializing in PHP and TypeScript",
+  sameAs: ["https://github.com/AtomicWasTaken", "https://www.linkedin.com/in/janmarlonleibl/"],
+  knowsAbout: ["PHP", "TypeScript", "Web Development", "System Architecture", "Database Design"],
 };
 
 const structuredDataWebsite = {
   "@context": "https://schema.org",
   "@type": type,
-  "headline": title,
-  "description": description,
-  "image": `${siteUrl}${image}`,
-  "url": canonicalUrl,
-  "author": {
+  headline: title,
+  description: description,
+  image: `${siteUrl}${image}`,
+  url: canonicalUrl,
+  author: {
     "@type": "Person",
-    "name": "Jan-Marlon Leibl",
-    "url": siteUrl
+    name: "Jan-Marlon Leibl",
+    url: siteUrl,
   },
-  ...(publishedDate && {"datePublished": publishedDate}),
-  ...(modifiedDate && {"dateModified": modifiedDate})
+  ...(publishedDate && { datePublished: publishedDate }),
+  ...(modifiedDate && { dateModified: modifiedDate }),
 };
 ---
 
@@ -105,4 +103,4 @@ const structuredDataWebsite = {
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="manifest" href="/manifest.json" /> 
+<link rel="manifest" href="/manifest.json" />

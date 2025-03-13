@@ -1,10 +1,18 @@
 ---
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiPhp, SiJavascript, SiMysql, SiDiscord } from 'react-icons/si';
-import { BsLightningChargeFill } from 'react-icons/bs';
-import { FaCode } from 'react-icons/fa';
-import { HiOutlineCollection } from 'react-icons/hi';
-import { MdLaunch } from 'react-icons/md';
-import FadeIn from '../ui/FadeIn.astro';
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+  SiPhp,
+  SiJavascript,
+  SiMysql,
+  SiDiscord,
+} from "react-icons/si";
+import { BsLightningChargeFill } from "react-icons/bs";
+import { FaCode } from "react-icons/fa";
+import { HiOutlineCollection } from "react-icons/hi";
+import { MdLaunch } from "react-icons/md";
+import FadeIn from "../ui/FadeIn.astro";
 
 interface Project {
   title: string;
@@ -19,21 +27,21 @@ interface Project {
 
 const getTagIcon = (tag: string) => {
   switch (tag) {
-    case 'Next.js':
+    case "Next.js":
       return SiNextdotjs;
-    case 'Tailwind CSS':
+    case "Tailwind CSS":
       return SiTailwindcss;
-    case 'TypeScript':
+    case "TypeScript":
       return SiTypescript;
-    case 'PHP':
+    case "PHP":
       return SiPhp;
-    case 'JavaScript':
+    case "JavaScript":
       return SiJavascript;
-    case 'MySQL':
+    case "MySQL":
       return SiMysql;
-    case 'Performance':
+    case "Performance":
       return BsLightningChargeFill;
-    case 'Discord API':
+    case "Discord API":
       return SiDiscord;
     default:
       return null;
@@ -41,11 +49,11 @@ const getTagIcon = (tag: string) => {
 };
 
 const getProjectIcon = (title: string) => {
-  if (title.includes('ventry')) {
+  if (title.includes("ventry")) {
     return MdLaunch;
-  } else if (title.includes('ShareUpload')) {
+  } else if (title.includes("ShareUpload")) {
     return HiOutlineCollection;
-  } else if (title.includes('RestoreM')) {
+  } else if (title.includes("RestoreM")) {
     return SiDiscord;
   } else {
     return FaCode;
@@ -54,49 +62,49 @@ const getProjectIcon = (title: string) => {
 
 const projects: Project[] = [
   {
-    title: 'ventry.host v2',
-    year: '2025',
-    description: 'Free file hosting revamped with a modern design and improved user experience.',
-    icon: getProjectIcon('ventry.host v2'),
+    title: "ventry.host v2",
+    year: "2025",
+    description: "Free file hosting revamped with a modern design and improved user experience.",
+    icon: getProjectIcon("ventry.host v2"),
     tags: [
-      { name: 'Next.js', icon: getTagIcon('Next.js') },
-      { name: 'Tailwind CSS', icon: getTagIcon('Tailwind CSS') },
-      { name: 'TypeScript', icon: getTagIcon('TypeScript') }
-    ]
+      { name: "Next.js", icon: getTagIcon("Next.js") },
+      { name: "Tailwind CSS", icon: getTagIcon("Tailwind CSS") },
+      { name: "TypeScript", icon: getTagIcon("TypeScript") },
+    ],
   },
   {
-    title: 'ventry.host',
-    year: '2023',
-    description: 'A free file hosting solution with thousands of daily visitors.',
-    icon: getProjectIcon('ventry.host'),
+    title: "ventry.host",
+    year: "2023",
+    description: "A free file hosting solution with thousands of daily visitors.",
+    icon: getProjectIcon("ventry.host"),
     tags: [
-      { name: 'PHP', icon: getTagIcon('PHP') },
-      { name: 'JavaScript', icon: getTagIcon('JavaScript') },
-      { name: 'MySQL', icon: getTagIcon('MySQL') }
-    ]
+      { name: "PHP", icon: getTagIcon("PHP") },
+      { name: "JavaScript", icon: getTagIcon("JavaScript") },
+      { name: "MySQL", icon: getTagIcon("MySQL") },
+    ],
   },
   {
-    title: 'ShareUpload',
-    year: '2022',
-    description: 'High-performance file sharing platform with unlimited storage.',
-    icon: getProjectIcon('ShareUpload'),
+    title: "ShareUpload",
+    year: "2022",
+    description: "High-performance file sharing platform with unlimited storage.",
+    icon: getProjectIcon("ShareUpload"),
     tags: [
-      { name: 'PHP', icon: getTagIcon('PHP') },
-      { name: 'MySQL', icon: getTagIcon('MySQL') },
-      { name: 'Performance', icon: getTagIcon('Performance') }
-    ]
+      { name: "PHP", icon: getTagIcon("PHP") },
+      { name: "MySQL", icon: getTagIcon("MySQL") },
+      { name: "Performance", icon: getTagIcon("Performance") },
+    ],
   },
   {
-    title: 'RestoreM',
-    year: '2023',
-    description: 'Discord server backup and restoration service.',
-    icon: getProjectIcon('RestoreM'),
+    title: "RestoreM",
+    year: "2023",
+    description: "Discord server backup and restoration service.",
+    icon: getProjectIcon("RestoreM"),
     tags: [
-      { name: 'PHP', icon: getTagIcon('PHP') },
-      { name: 'MySQL', icon: getTagIcon('MySQL') },
-      { name: 'Discord API', icon: getTagIcon('Discord API') }
-    ]
-  }
+      { name: "PHP", icon: getTagIcon("PHP") },
+      { name: "MySQL", icon: getTagIcon("MySQL") },
+      { name: "Discord API", icon: getTagIcon("Discord API") },
+    ],
+  },
 ];
 
 const sortedProjects = [...projects].sort((a, b) => {
@@ -106,74 +114,78 @@ const sortedProjects = [...projects].sort((a, b) => {
 
 <section id="work" class="py-24 sm:py-40 px-4 sm:px-8 relative">
   <div class="absolute inset-0 theme-bg-gradient opacity-30"></div>
-  
+
   <div class="max-w-(--breakpoint-xl) mx-auto relative">
     <FadeIn>
       <div class="flex flex-col gap-3 mb-12 sm:mb-24">
-        <span class="theme-text-40 uppercase tracking-wider text-sm sm:text-base font-medium font-['Instrument_Sans']">
+        <span
+          class="theme-text-40 uppercase tracking-wider text-sm sm:text-base font-medium font-['Instrument_Sans']"
+        >
           Portfolio
         </span>
         <div class="flex items-baseline gap-4">
-          <h2 class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary">
+          <h2
+            class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary"
+          >
             Selected Work
           </h2>
           <div class="h-px grow theme-border opacity-60"></div>
         </div>
       </div>
     </FadeIn>
-    
+
     <div class="grid gap-20 sm:gap-28">
-      {sortedProjects.map((project, index) => (
-        <FadeIn delay={index * 0.1}>
-          <div class="group relative">
-            <div class="absolute top-0 left-0 right-0 flex items-center gap-4">
-              <div class="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium py-2 pr-4">
-                {project.year}
-              </div>
-              <div class="h-px grow theme-border opacity-30"></div>
-            </div>
-
-            <div class="pt-12 sm:pt-16 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 sm:gap-16">
-              <div class="space-y-4 sm:space-y-6">
-                <h3 class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary group-hover:theme-text-90 transition-colors">
-                  {project.title}
-                </h3>
-                <p class="font-['Instrument_Sans'] text-base sm:text-xl theme-text-70 leading-relaxed group-hover:theme-text-90 transition-colors max-w-xl">
-                  {project.description}
-                </p>
+      {
+        sortedProjects.map((project, index) => (
+          <FadeIn delay={index * 0.1}>
+            <div class="group relative">
+              <div class="absolute top-0 left-0 right-0 flex items-center gap-4">
+                <div class="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium py-2 pr-4">
+                  {project.year}
+                </div>
+                <div class="h-px grow theme-border opacity-30" />
               </div>
 
-              <div class="space-y-6 sm:space-y-10">
+              <div class="pt-12 sm:pt-16 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 sm:gap-16">
                 <div class="space-y-4 sm:space-y-6">
-                  <h4 class="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium">
-                    Technologies
-                  </h4>
-                  <div class="flex flex-wrap items-center gap-3 sm:gap-4">
-                    {project.tags.map((tag, tagIndex) => {
-                      const Icon = tag.icon;
-                      return (
-                        <span 
-                          class="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-tight font-medium py-1.5 sm:py-2 group-hover:theme-text-90 transition-all duration-300 theme-bg-05 px-4 sm:px-5 rounded-xl shadow-sm border border-transparent group-hover:theme-border"
-                        >
-                          <span class="mr-2 flex items-center">
-                            <Icon className="text-lg" />
+                  <h3 class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary group-hover:theme-text-90 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p class="font-['Instrument_Sans'] text-base sm:text-xl theme-text-70 leading-relaxed group-hover:theme-text-90 transition-colors max-w-xl">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div class="space-y-6 sm:space-y-10">
+                  <div class="space-y-4 sm:space-y-6">
+                    <h4 class="font-['Instrument_Sans'] text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium">
+                      Technologies
+                    </h4>
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                      {project.tags.map((tag, tagIndex) => {
+                        const Icon = tag.icon;
+                        return (
+                          <span class="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-tight font-medium py-1.5 sm:py-2 group-hover:theme-text-90 transition-all duration-300 theme-bg-05 px-4 sm:px-5 rounded-xl shadow-sm border border-transparent group-hover:theme-border">
+                            <span class="mr-2 flex items-center">
+                              <Icon className="text-lg" />
+                            </span>
+                            {tag.name}
+                            {tagIndex !== project.tags.length - 1 && (
+                              <span class="ml-2 opacity-0">•</span>
+                            )}
                           </span>
-                          {tag.name}
-                          {tagIndex !== project.tags.length - 1 && (
-                            <span class="ml-2 opacity-0">•</span>
-                          )}
-                        </span>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="absolute -inset-x-6 sm:-inset-x-8 -inset-y-6 sm:-inset-y-8 rounded-2xl sm:rounded-3xl border border-transparent hover:theme-border group-hover:bg-white/[0.01] transition-all duration-300 shadow-sm group-hover:shadow-md"></div>
-          </div>
-        </FadeIn>
-      ))}
+              <div class="absolute -inset-x-6 sm:-inset-x-8 -inset-y-6 sm:-inset-y-8 rounded-2xl sm:rounded-3xl border border-transparent hover:theme-border group-hover:bg-white/[0.01] transition-all duration-300 shadow-sm group-hover:shadow-md" />
+            </div>
+          </FadeIn>
+        ))
+      }
     </div>
   </div>
 </section>

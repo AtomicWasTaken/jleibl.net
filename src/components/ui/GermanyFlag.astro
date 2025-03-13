@@ -1,4 +1,4 @@
-<div 
+<div
   id="germany-flag"
   role="group"
   aria-label="Theme switcher with German flag colors"
@@ -29,30 +29,30 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const themeButtons = document.querySelectorAll('.theme-button');
-    const currentTheme = localStorage.getItem('theme') || 'black';
-    
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    document.getElementById(`theme-${currentTheme}`)?.classList.add('ring-1', 'ring-white/20');
-    
-    themeButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const theme = button.getAttribute('data-theme');
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeButtons = document.querySelectorAll(".theme-button");
+    const currentTheme = localStorage.getItem("theme") || "black";
+
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    document.getElementById(`theme-${currentTheme}`)?.classList.add("ring-1", "ring-white/20");
+
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const theme = button.getAttribute("data-theme");
         if (!theme) return;
-        
-        themeButtons.forEach(btn => btn.classList.remove('ring-1', 'ring-white/20'));
-        
-        button.classList.add('ring-1', 'ring-white/20');
-        
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        
-        const themeChangedEvent = new CustomEvent('themeChanged', {
-          detail: { theme }
+
+        themeButtons.forEach((btn) => btn.classList.remove("ring-1", "ring-white/20"));
+
+        button.classList.add("ring-1", "ring-white/20");
+
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+
+        const themeChangedEvent = new CustomEvent("themeChanged", {
+          detail: { theme },
         });
         document.dispatchEvent(themeChangedEvent);
       });
     });
   });
-</script> 
+</script>

@@ -5,14 +5,14 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" }
+  { label: "Contact", href: "#contact" },
 ];
 ---
 
 <div class="mobile-menu">
-  <button 
-    id="menu-btn" 
-    class="menu-btn" 
+  <button
+    id="menu-btn"
+    class="menu-btn"
     aria-label="Toggle mobile menu"
     aria-expanded="false"
     aria-controls="mobile-menu-panel"
@@ -21,43 +21,39 @@ const navItems = [
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
-  
+
   <div id="mobile-menu-panel" class="menu-panel">
     <div class="menu-content">
       <nav class="menu-nav">
-        {navItems.map((item) => (
-          <a 
-            href={item.href} 
-            class="menu-item"
-          >
-            {item.label}
-          </a>
-        ))}
+        {
+          navItems.map((item) => (
+            <a href={item.href} class="menu-item">
+              {item.label}
+            </a>
+          ))
+        }
       </nav>
-      
+
       <div class="menu-footer">
-        <a 
-          href="mailto:jleibl@proton.me" 
-          class="contact-button"
-        >
+        <a href="mailto:jleibl@proton.me" class="contact-button">
           <span class="icon-wrapper">
             <FaEnvelope className="w-5 h-5" />
           </span>
           <span>Contact Me</span>
         </a>
-        
+
         <div class="social-links">
-          <a 
-            href="https://github.com/AtomicWasTaken" 
-            target="_blank" 
+          <a
+            href="https://github.com/AtomicWasTaken"
+            target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
           >
             <FaGithub className="w-5 h-5" />
           </a>
-          <a 
-            href="https://www.linkedin.com/in/janmarlonleibl/" 
-            target="_blank" 
+          <a
+            href="https://www.linkedin.com/in/janmarlonleibl/"
+            target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
           >
@@ -70,30 +66,30 @@ const navItems = [
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('menu-btn');
-    const menuPanel = document.getElementById('mobile-menu-panel');
-    const menuItems = document.querySelectorAll('.menu-item');
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const menuPanel = document.getElementById("mobile-menu-panel");
+    const menuItems = document.querySelectorAll(".menu-item");
+
     function toggleMenu() {
       if (!menuBtn || !menuPanel) return;
-      
-      const isOpen = menuBtn.classList.toggle('active');
-      
-      menuBtn.setAttribute('aria-expanded', isOpen.toString());
-      menuPanel.classList.toggle('open', isOpen);
-      
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+
+      const isOpen = menuBtn.classList.toggle("active");
+
+      menuBtn.setAttribute("aria-expanded", isOpen.toString());
+      menuPanel.classList.toggle("open", isOpen);
+
+      document.body.style.overflow = isOpen ? "hidden" : "";
     }
-    
-    menuBtn?.addEventListener('click', toggleMenu);
-    
-    menuItems.forEach(item => {
-      item.addEventListener('click', toggleMenu);
+
+    menuBtn?.addEventListener("click", toggleMenu);
+
+    menuItems.forEach((item) => {
+      item.addEventListener("click", toggleMenu);
     });
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menuPanel?.classList.contains('open')) {
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menuPanel?.classList.contains("open")) {
         toggleMenu();
       }
     });
@@ -105,7 +101,7 @@ const navItems = [
     position: relative;
     z-index: 100;
   }
-  
+
   .menu-btn {
     display: flex;
     flex-direction: column;
@@ -123,31 +119,33 @@ const navItems = [
     z-index: 101;
     transition: background-color 0.3s ease;
   }
-  
+
   .menu-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
-  
+
   .menu-btn .bar {
     display: block;
     width: 20px;
     height: 2px;
     background-color: white;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
-  
+
   .menu-btn.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  
+
   .menu-btn.active .bar:nth-child(2) {
     opacity: 0;
   }
-  
+
   .menu-btn.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
   .menu-panel {
     position: fixed;
     top: 0;
@@ -163,12 +161,12 @@ const navItems = [
     transition: all 0.3s ease;
     z-index: 100;
   }
-  
+
   .menu-panel.open {
     visibility: visible;
     opacity: 1;
   }
-  
+
   .menu-content {
     display: flex;
     flex-direction: column;
@@ -176,14 +174,14 @@ const navItems = [
     height: 100%;
     padding-top: 80px;
   }
-  
+
   .menu-nav {
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 24px;
   }
-  
+
   .menu-item {
     display: block;
     padding: 12px 24px;
@@ -195,12 +193,12 @@ const navItems = [
     border-radius: 12px;
     transition: all 0.2s ease;
   }
-  
+
   .menu-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
   }
-  
+
   .menu-footer {
     margin-top: auto;
     padding: 24px;
@@ -209,7 +207,7 @@ const navItems = [
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .contact-button {
     display: flex;
     align-items: center;
@@ -222,11 +220,11 @@ const navItems = [
     font-weight: 500;
     transition: background-color 0.2s ease;
   }
-  
+
   .contact-button:hover {
     background-color: rgba(255, 255, 255, 0.15);
   }
-  
+
   .icon-wrapper {
     display: flex;
     align-items: center;
@@ -235,14 +233,14 @@ const navItems = [
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
   }
-  
+
   .social-links {
     display: flex;
     justify-content: center;
     gap: 16px;
     margin-top: 8px;
   }
-  
+
   .social-links a {
     display: flex;
     align-items: center;
@@ -254,8 +252,8 @@ const navItems = [
     color: white;
     transition: background-color 0.2s ease;
   }
-  
+
   .social-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
-</style> 
+</style>

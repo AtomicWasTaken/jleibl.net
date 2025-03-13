@@ -3,13 +3,13 @@ import FadeIn from "../ui/FadeIn.astro";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 ---
 
-<footer
-  role="contentinfo"
-  class="mt-20 sm:mt-40 relative"
->
+<footer role="contentinfo" class="mt-20 sm:mt-40 relative">
   <div class="absolute inset-0 theme-bg-gradient opacity-30"></div>
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-  
+  <div
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+  >
+  </div>
+
   <div class="max-w-(--breakpoint-xl) mx-auto px-4 sm:px-8 py-20 sm:py-32 relative">
     <div class="grid gap-16 sm:gap-24">
       <FadeIn>
@@ -38,10 +38,10 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
             </span>
             jleibl@proton.me
           </a>
-          
+
           <div class="flex gap-6 sm:gap-8">
-            <a 
-              href="https://github.com/AtomicWasTaken" 
+            <a
+              href="https://github.com/AtomicWasTaken"
               target="_blank"
               rel="noopener noreferrer"
               class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"
@@ -49,9 +49,9 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
             >
               <FaGithub className="w-6 h-6 sm:w-7 sm:h-7" />
             </a>
-            
-            <a 
-              href="https://www.linkedin.com/in/janmarlonleibl/" 
+
+            <a
+              href="https://www.linkedin.com/in/janmarlonleibl/"
               target="_blank"
               rel="noopener noreferrer"
               class="p-3 sm:p-4 rounded-xl theme-bg-05 border theme-border theme-text-70 hover:theme-text-90 hover:scale-105 transition-all duration-300 shadow-sm"

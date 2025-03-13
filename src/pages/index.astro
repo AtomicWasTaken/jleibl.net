@@ -1,23 +1,23 @@
 ---
-import Header from '../components/layout/Header.astro';
-import Meta from '../components/layout/Meta.astro';
-import SkipToContent from '../components/ui/SkipToContent.astro';
-import Hero from '../components/sections/Hero.astro';
-import About from '../components/sections/About.astro';
-import Work from '../components/sections/Work.astro';
-import BlogPreview from '../components/sections/BlogPreview.astro';
-import Contact from '../components/sections/Contact.astro';
-import Footer from '../components/layout/Footer.astro';
+import Header from "../components/layout/Header.astro";
+import Meta from "../components/layout/Meta.astro";
+import SkipToContent from "../components/ui/SkipToContent.astro";
+import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Work from "../components/sections/Work.astro";
+import BlogPreview from "../components/sections/BlogPreview.astro";
+import Contact from "../components/sections/Contact.astro";
+import Footer from "../components/layout/Footer.astro";
 
-import '../styles/global.css';
-import '../styles/theme.css';
+import "../styles/global.css";
+import "../styles/theme.css";
 
-import '@fontsource/dm-sans/400.css';
-import '@fontsource/dm-sans/500.css';
-import '@fontsource/dm-sans/600.css';
-import '@fontsource/dm-sans/700.css';
-import '@fontsource/instrument-sans/400.css';
-import '@fontsource/instrument-sans/500.css';
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
+import "@fontsource/dm-sans/600.css";
+import "@fontsource/dm-sans/700.css";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
 ---
 
 <html lang="en">
@@ -41,78 +41,78 @@ import '@fontsource/instrument-sans/500.css';
 </html>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const appRoot = document.getElementById('app-root');
-    const themeButtons = document.querySelectorAll('.theme-button');
-    
-    const currentTheme = localStorage.getItem('colorTheme') || 'black';
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const appRoot = document.getElementById("app-root");
+    const themeButtons = document.querySelectorAll(".theme-button");
+
+    const currentTheme = localStorage.getItem("colorTheme") || "black";
+
     if (appRoot) {
-      appRoot.classList.remove('black', 'red', 'gold');
+      appRoot.classList.remove("black", "red", "gold");
       appRoot.classList.add(currentTheme);
     }
-    
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    
-    document.getElementById(`theme-${currentTheme}`)?.classList.add('ring-1', 'ring-white/20');
-    
-    document.addEventListener('themeChanged', (e) => {
+
+    document.documentElement.setAttribute("data-theme", currentTheme);
+
+    document.getElementById(`theme-${currentTheme}`)?.classList.add("ring-1", "ring-white/20");
+
+    document.addEventListener("themeChanged", (e) => {
       const customEvent = e as Event & { detail: { theme: string } };
       const newTheme = customEvent.detail.theme;
       if (appRoot && newTheme) {
-        appRoot.classList.remove('black', 'red', 'gold');
+        appRoot.classList.remove("black", "red", "gold");
         appRoot.classList.add(newTheme);
-        
-        localStorage.setItem('colorTheme', newTheme);
+
+        localStorage.setItem("colorTheme", newTheme);
       }
     });
   });
 </script>
 
 <script>
-  import Lenis from 'lenis';
-  
-  document.addEventListener('DOMContentLoaded', () => {
+  import Lenis from "lenis";
+
+  document.addEventListener("DOMContentLoaded", () => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 2,
-      infinite: false
+      infinite: false,
     });
-    
+
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    
-    anchorLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+
+    anchorLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        
-        const targetId = link.getAttribute('href');
-        if (targetId && targetId !== '#') {
+
+        const targetId = link.getAttribute("href");
+        if (targetId && targetId !== "#") {
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             lenis.scrollTo(targetElement as HTMLElement, {
               offset: 0,
               duration: 1.2,
-              immediate: false
+              immediate: false,
             });
           }
         }
       });
     });
-    
+
     let animationId: number;
-    
+
     function raf(time: number) {
       lenis.raf(time);
       animationId = requestAnimationFrame(raf);
     }
-    
+
     animationId = requestAnimationFrame(raf);
-    
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') {
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
         cancelAnimationFrame(animationId);
       } else {
         animationId = requestAnimationFrame(raf);
@@ -122,13 +122,13 @@ import '@fontsource/instrument-sans/500.css';
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if ('loading' in HTMLImageElement.prototype) {
-      const lazyImages = document.querySelectorAll('img[data-src]');
-      lazyImages.forEach(img => {
+  document.addEventListener("DOMContentLoaded", () => {
+    if ("loading" in HTMLImageElement.prototype) {
+      const lazyImages = document.querySelectorAll("img[data-src]");
+      lazyImages.forEach((img) => {
         const imgElement = img as HTMLImageElement;
-        imgElement.src = imgElement.dataset.src || '';
-        imgElement.removeAttribute('data-src');
+        imgElement.src = imgElement.dataset.src || "";
+        imgElement.removeAttribute("data-src");
       });
     } else {
       const lazyImageObserver = new IntersectionObserver((entries) => {
@@ -137,14 +137,14 @@ import '@fontsource/instrument-sans/500.css';
             const lazyImage = entry.target as HTMLImageElement;
             if (lazyImage.dataset.src) {
               lazyImage.src = lazyImage.dataset.src;
-              lazyImage.removeAttribute('data-src');
+              lazyImage.removeAttribute("data-src");
             }
             lazyImageObserver.unobserve(lazyImage);
           }
         });
       });
-      
-      document.querySelectorAll('img[data-src]').forEach(image => {
+
+      document.querySelectorAll("img[data-src]").forEach((image) => {
         lazyImageObserver.observe(image);
       });
     }
@@ -152,12 +152,11 @@ import '@fontsource/instrument-sans/500.css';
 </script>
 
 <script>
-  if ('serviceWorker' in navigator && import.meta.env.PROD) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-        .catch(error => {
-          console.error('Service worker registration failed:', error);
-        });
+  if ("serviceWorker" in navigator && import.meta.env.PROD) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js").catch((error) => {
+        console.error("Service worker registration failed:", error);
+      });
     });
   }
 </script>

@@ -1,45 +1,52 @@
 ---
-import FadeIn from '../ui/FadeIn.astro';
-import { Icon } from 'astro-icon/components';
-import { SiPhp, SiJavascript, SiMysql, SiReact } from 'react-icons/si';
-import { FaGithub, FaLinkedin, FaGlobe, FaPalette } from 'react-icons/fa';
-import { BsLightningChargeFill } from 'react-icons/bs';
-import { IoServerOutline } from 'react-icons/io5';
-import { Image } from 'astro:assets';
+import FadeIn from "../ui/FadeIn.astro";
+import { Icon } from "astro-icon/components";
+import { SiPhp, SiJavascript, SiMysql, SiReact } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaGlobe, FaPalette } from "react-icons/fa";
+import { BsLightningChargeFill } from "react-icons/bs";
+import { IoServerOutline } from "react-icons/io5";
+import { Image } from "astro:assets";
 
 const technologies = [
-  { name: 'PHP', icon: SiPhp },
-  { name: 'JavaScript', icon: SiJavascript },
-  { name: 'MySQL', icon: SiMysql },
-  { name: 'React', icon: SiReact }
+  { name: "PHP", icon: SiPhp },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "MySQL", icon: SiMysql },
+  { name: "React", icon: SiReact },
 ];
 
 const interests = [
-  { name: 'Web Development', icon: FaGlobe },
-  { name: 'System Architecture', icon: IoServerOutline },
-  { name: 'UI/UX Design', icon: FaPalette },
-  { name: 'Performance Optimization', icon: BsLightningChargeFill }
+  { name: "Web Development", icon: FaGlobe },
+  { name: "System Architecture", icon: IoServerOutline },
+  { name: "UI/UX Design", icon: FaPalette },
+  { name: "Performance Optimization", icon: BsLightningChargeFill },
 ];
 ---
 
 <section id="about" class="py-24 sm:py-40 px-4 sm:px-8 relative">
   <div class="absolute inset-0 theme-bg-gradient opacity-50"></div>
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-  
+  <div
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+  >
+  </div>
+
   <div class="max-w-(--breakpoint-xl) mx-auto relative">
     <FadeIn>
       <div class="flex items-baseline gap-4 mb-12 sm:mb-24">
-        <h2 class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary">
+        <h2
+          class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary"
+        >
           About
         </h2>
         <div class="h-px grow theme-border opacity-60"></div>
       </div>
     </FadeIn>
-    
+
     <div class="grid md:grid-cols-[1fr_2fr] gap-12 sm:gap-24">
       <div class="space-y-6 sm:space-y-8">
         <FadeIn>
-          <div class="aspect-square theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/20 transition-all duration-300 shadow-md hover:shadow-lg mx-auto md:mx-0 max-w-[280px] md:max-w-none relative group">
+          <div
+            class="aspect-square theme-bg-05 rounded-2xl overflow-hidden border theme-border hover:border-white/20 transition-all duration-300 shadow-md hover:shadow-lg mx-auto md:mx-0 max-w-[280px] md:max-w-none relative group"
+          >
             <Image
               src="/profile-image.jpg"
               alt="Jan-Marlon Leibl - Fullstack Software Developer"
@@ -47,7 +54,10 @@ const interests = [
               height="400"
               class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            >
+            </div>
           </div>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -61,15 +71,18 @@ const interests = [
           </div>
         </FadeIn>
       </div>
-      
+
       <FadeIn delay={0.2}>
         <div class="space-y-10 sm:space-y-16 font-['Instrument_Sans']">
           <div class="space-y-6 sm:space-y-8">
             <p class="text-xl sm:text-2xl theme-text-90 leading-relaxed">
-              Hello! I'm Jan-Marlon, but please call me Jan. I started my journey in programming at the age of 11 with C#, fascinated by a desktop application my friend created.
+              Hello! I'm Jan-Marlon, but please call me Jan. I started my journey in programming at
+              the age of 11 with C#, fascinated by a desktop application my friend created.
             </p>
             <p class="text-base sm:text-xl theme-text-70 leading-relaxed">
-              Today, I specialize in PHP and TypeScript development, constantly pushing the boundaries of what's possible on the web. My journey has led me from creating simple applications to developing complex systems used by thousands.
+              Today, I specialize in PHP and TypeScript development, constantly pushing the
+              boundaries of what's possible on the web. My journey has led me from creating simple
+              applications to developing complex systems used by thousands.
             </p>
           </div>
 
@@ -82,14 +95,16 @@ const interests = [
                 <div class="h-px grow theme-border opacity-30"></div>
               </div>
               <ul class="space-y-4 sm:space-y-5">
-                {technologies.map((tech) => (
-                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 cursor-default theme-bg-05 px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
-                    <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-all">
-                      <tech.icon className="w-5 h-5" />
-                    </span>
-                    {tech.name}
-                  </li>
-                ))}
+                {
+                  technologies.map((tech) => (
+                    <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 cursor-default theme-bg-05 px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
+                      <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-all">
+                        <tech.icon className="w-5 h-5" />
+                      </span>
+                      {tech.name}
+                    </li>
+                  ))
+                }
               </ul>
             </div>
 
@@ -101,21 +116,23 @@ const interests = [
                 <div class="h-px grow theme-border opacity-30"></div>
               </div>
               <ul class="space-y-4 sm:space-y-5">
-                {interests.map((interest) => (
-                  <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 cursor-default theme-bg-05 px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
-                    <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-all">
-                      <interest.icon className="w-5 h-5" />
-                    </span>
-                    {interest.name}
-                  </li>
-                ))}
+                {
+                  interests.map((interest) => (
+                    <li class="text-base sm:text-lg group flex items-center gap-3 theme-text-70 hover:theme-text-90 cursor-default theme-bg-05 px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
+                      <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-all">
+                        <interest.icon className="w-5 h-5" />
+                      </span>
+                      {interest.name}
+                    </li>
+                  ))
+                }
               </ul>
             </div>
           </div>
 
           <div class="pt-8 sm:pt-10 flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <a 
-              href="https://github.com/AtomicWasTaken" 
+            <a
+              href="https://github.com/AtomicWasTaken"
               target="_blank"
               rel="noopener noreferrer"
               class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-xl theme-button-secondary hover:theme-bg-05 transition-all duration-300 text-sm sm:text-base tracking-tight font-medium flex items-center justify-center gap-2 shadow-sm"
@@ -124,7 +141,7 @@ const interests = [
               View GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/janmarlonleibl/" 
+              href="https://www.linkedin.com/in/janmarlonleibl/"
               target="_blank"
               rel="noopener noreferrer"
               class="animate-button w-full text-center px-6 sm:px-8 py-3 sm:py-4 border theme-border rounded-xl theme-button-secondary hover:theme-bg-05 transition-all duration-300 text-sm sm:text-base tracking-tight font-medium flex items-center justify-center gap-2 shadow-sm"
@@ -143,12 +160,12 @@ const interests = [
   .animate-button {
     transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  
+
   .animate-button:hover {
     transform: translateY(-2px);
   }
-  
+
   .animate-button:active {
     transform: scale(0.98);
   }
-</style> 
+</style>

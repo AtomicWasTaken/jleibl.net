@@ -2,22 +2,17 @@
 interface Props {
   className?: string;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right';
+  direction?: "up" | "down" | "left" | "right";
   distance?: number;
 }
 
-const { 
-  className = "", 
-  delay = 0,
-  direction = 'up',
-  distance = 20
-} = Astro.props;
+const { className = "", delay = 0, direction = "up", distance = 20 } = Astro.props;
 
 const directionMap = {
   up: { x: 0, y: distance },
   down: { x: 0, y: -distance },
   left: { x: distance, y: 0 },
-  right: { x: -distance, y: 0 }
+  right: { x: -distance, y: 0 },
 };
 
 const { x, y } = directionMap[direction];
@@ -32,9 +27,11 @@ const uniqueId = `fade-in-${Math.random().toString(36).substring(2, 9)}`;
   .fade-in {
     opacity: 0;
     transform: translate(var(--start-x, 0px), var(--start-y, 20px));
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
   }
-  
+
   .fade-in.visible {
     opacity: 1;
     transform: translate(0px, 0px);
@@ -42,25 +39,28 @@ const uniqueId = `fade-in-${Math.random().toString(36).substring(2, 9)}`;
 </style>
 
 <script define:vars={{ uniqueId, x, y, delay }}>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const element = document.getElementById(uniqueId);
     if (element) {
-      element.style.setProperty('--start-x', `${x}px`);
-      element.style.setProperty('--start-y', `${y}px`);
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              element.classList.add('visible');
-            }, delay * 1000);
-            
-            observer.disconnect();
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
-      
+      element.style.setProperty("--start-x", `${x}px`);
+      element.style.setProperty("--start-y", `${y}px`);
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                element.classList.add("visible");
+              }, delay * 1000);
+
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+      );
+
       observer.observe(element);
     }
   });
-</script> 
+</script>
