@@ -12,6 +12,7 @@
 
 # astro
 /dist
+.astro
 
 # testing
 /coverage
