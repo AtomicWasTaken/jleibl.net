@@ -21,7 +21,7 @@
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/postcss": "^4.0.12",
     "@tailwindcss/vite": "^4.0.12",
-    "astro": "^5.4.2",
+    "astro": "5.5.3",
     "astro-icon": "^1.1.5",
     "framer-motion": "^12.4.7",
     "lenis": "^1.2.3"
