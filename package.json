@@ -24,7 +24,8 @@
     "astro": "5.5.3",
     "astro-icon": "^1.1.5",
     "framer-motion": "^12.4.7",
-    "lenis": "^1.2.3"
+    "lenis": "^1.2.3",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
