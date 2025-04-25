@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.2.3",
+    "@astrojs/react": "4.2.5",
     "@fontsource/dm-sans": "^5.2.5",
     "@fontsource/instrument-sans": "^5.2.5",
     "@iconify-json/logos": "^1.2.4",
@@ -21,7 +21,7 @@
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/postcss": "^4.1.2",
     "@tailwindcss/vite": "^4.1.2",
-    "astro": "5.5.3",
+    "astro": "5.7.5",
     "astro-icon": "^1.1.5",
     "framer-motion": "^12.6.3",
     "lenis": "^1.2.3",
