@@ -6,7 +6,7 @@ const AUTH_ASSETS = ["/manifest.json"];
 
 const STYLE_ASSETS = ["/styles/global.css", "/styles/theme.css"];
 
-const IMAGE_ASSETS = ["/imageshttps://cdn.ventry.host/janoderso/aab5b685-3731-4d2d-88fe-ef02861035d7.jpg"];
+const IMAGE_ASSETS = ["/images/profile-image-futu-style.jpg"];
 
 const ALL_ASSETS = [...PRECACHE_ASSETS, ...AUTH_ASSETS, ...STYLE_ASSETS, ...IMAGE_ASSETS];
 

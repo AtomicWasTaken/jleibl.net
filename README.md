@@ -1,7 +1,7 @@
 # jleibl.net - Personal Portfolio Website
 
 <div align="center">
-  <img src="https://cdn.ventry.host/janoderso/aab5b685-3731-4d2d-88fe-ef02861035d7.jpg" alt="Jan-Marlon Leibl" width="150" style="border-radius: 50%;" />
+  <img src="public/profile-image-futu-style.jpg" alt="Jan-Marlon Leibl" width="150" style="border-radius: 50%;" />
   <h3>Jan-Marlon Leibl</h3>
   <p>Fullstack Software Developer | PHP & TypeScript Expert</p>
   <a href="https://jleibl.net" target="_blank">Live Website</a>
