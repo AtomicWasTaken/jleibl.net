@@ -37,10 +37,10 @@ import MobileMenu from "./MobileMenu.astro";
           class="flex bg-black/5 backdrop-blur-md overflow-hidden theme-border border divide-x divide-white/5 shadow-sm rounded-xl"
         >
           {
-            ["About", "Work", "Blog", "Contact"].map((item, index) => (
+            ["About", "Work", "Contact"].map((item, index) => (
               <a
                 href={`#${item.toLowerCase()}`}
-                class={`nav-item px-5 py-2 theme-secondary hover:theme-primary theme-transition ${index === 0 ? "rounded-l-xl" : ""} ${index === 3 ? "rounded-r-xl" : ""}`}
+                class={`nav-item px-5 py-2 theme-secondary hover:theme-primary theme-transition ${index === 0 ? "rounded-l-xl" : ""} ${index === 2 ? "rounded-r-xl" : ""}`}
                 aria-label={`View my ${item.toLowerCase()}`}
               >
                 {item}
