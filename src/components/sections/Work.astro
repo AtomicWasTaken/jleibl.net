@@ -9,68 +9,31 @@ import {
   SiDiscord,
 } from "react-icons/si";
 import { BsLightningChargeFill } from "react-icons/bs";
-import { FaCode } from "react-icons/fa";
 import { HiOutlineCollection } from "react-icons/hi";
 import { MdLaunch } from "react-icons/md";
 import FadeIn from "../ui/FadeIn.astro";
 
-interface Project {
-  title: string;
-  year: string;
-  description: string;
-  icon: any;
-  tags: Array<{
-    name: string;
-    icon: any;
-  }>;
-  link?: string;
-}
-
-const getTagIcon = (tag: string) => {
-  switch (tag) {
-    case "Next.js":
-      return SiNextdotjs;
-    case "Tailwind CSS":
-      return SiTailwindcss;
-    case "TypeScript":
-      return SiTypescript;
-    case "PHP":
-      return SiPhp;
-    case "JavaScript":
-      return SiJavascript;
-    case "MySQL":
-      return SiMysql;
-    case "Performance":
-      return BsLightningChargeFill;
-    case "Discord API":
-      return SiDiscord;
-    default:
-      return null;
-  }
+const iconMap = {
+  "Next.js": SiNextdotjs,
+  "Tailwind CSS": SiTailwindcss,
+  "TypeScript": SiTypescript,
+  "PHP": SiPhp,
+  "JavaScript": SiJavascript,
+  "MySQL": SiMysql,
+  "Performance": BsLightningChargeFill,
+  "Discord API": SiDiscord,
 };
 
-const getProjectIcon = (title: string) => {
-  if (title.includes("ventry")) {
-    return MdLaunch;
-  } else if (title.includes("ShareUpload")) {
-    return HiOutlineCollection;
-  } else if (title.includes("RestoreM")) {
-    return SiDiscord;
-  } else {
-    return FaCode;
-  }
-};
-
-const projects: Project[] = [
+const projects = [
   {
     title: "ventry.host v2",
     year: "2025",
     description: "Free file hosting revamped with a modern design and improved user experience.",
-    icon: getProjectIcon("ventry.host v2"),
+    icon: MdLaunch,
     tags: [
-      { name: "Next.js", icon: getTagIcon("Next.js") },
-      { name: "Tailwind CSS", icon: getTagIcon("Tailwind CSS") },
-      { name: "TypeScript", icon: getTagIcon("TypeScript") },
+      { name: "Next.js", icon: iconMap["Next.js"] },
+      { name: "Tailwind CSS", icon: iconMap["Tailwind CSS"] },
+      { name: "TypeScript", icon: iconMap["TypeScript"] },
     ],
     link: "https://ventry.host",
   },
@@ -78,40 +41,36 @@ const projects: Project[] = [
     title: "ventry.host",
     year: "2023",
     description: "A free file hosting solution with thousands of daily visitors.",
-    icon: getProjectIcon("ventry.host"),
+    icon: MdLaunch,
     tags: [
-      { name: "PHP", icon: getTagIcon("PHP") },
-      { name: "JavaScript", icon: getTagIcon("JavaScript") },
-      { name: "MySQL", icon: getTagIcon("MySQL") },
+      { name: "PHP", icon: iconMap["PHP"] },
+      { name: "JavaScript", icon: iconMap["JavaScript"] },
+      { name: "MySQL", icon: iconMap["MySQL"] },
     ],
   },
   {
     title: "ShareUpload",
     year: "2022",
     description: "High-performance file sharing platform with unlimited storage.",
-    icon: getProjectIcon("ShareUpload"),
+    icon: HiOutlineCollection,
     tags: [
-      { name: "PHP", icon: getTagIcon("PHP") },
-      { name: "MySQL", icon: getTagIcon("MySQL") },
-      { name: "Performance", icon: getTagIcon("Performance") },
+      { name: "PHP", icon: iconMap["PHP"] },
+      { name: "MySQL", icon: iconMap["MySQL"] },
+      { name: "Performance", icon: iconMap["Performance"] },
     ],
   },
   {
     title: "RestoreM",
     year: "2023",
     description: "Discord server backup and restoration service.",
-    icon: getProjectIcon("RestoreM"),
+    icon: SiDiscord,
     tags: [
-      { name: "PHP", icon: getTagIcon("PHP") },
-      { name: "MySQL", icon: getTagIcon("MySQL") },
-      { name: "Discord API", icon: getTagIcon("Discord API") },
+      { name: "PHP", icon: iconMap["PHP"] },
+      { name: "MySQL", icon: iconMap["MySQL"] },
+      { name: "Discord API", icon: iconMap["Discord API"] },
     ],
   },
-];
-
-const sortedProjects = [...projects].sort((a, b) => {
-  return parseInt(b.year) - parseInt(a.year);
-});
+].sort((a, b) => parseInt(b.year) - parseInt(a.year));
 ---
 
 <section id="work" class="py-24 sm:py-40 px-4 sm:px-8 relative">
@@ -138,7 +97,7 @@ const sortedProjects = [...projects].sort((a, b) => {
 
     <div class="grid gap-24 sm:gap-32">
       {
-        sortedProjects.map((project, index) => (
+        projects.map((project, index) => (
           <FadeIn delay={index * 0.1}>
             <div class="group relative" data-project-card>
               {project.link && (
@@ -182,17 +141,14 @@ const sortedProjects = [...projects].sort((a, b) => {
                       Technologies
                     </h4>
                     <div class="flex flex-wrap items-center gap-3 sm:gap-4 relative z-20 pointer-events-none">
-                      {project.tags.map((tag, tagIndex) => {
-                        const Icon = tag.icon;
-                        return (
-                          <span class="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-tight font-medium py-2 px-5 group-hover:theme-text-90 transition-all duration-300 theme-bg-05 rounded-full shadow-sm border border-transparent group-hover:theme-border">
-                            <span class="mr-2 flex items-center">
-                              <Icon className="text-lg" />
-                            </span>
-                            {tag.name}
+                      {project.tags.map((tag) => (
+                        <span class="flex items-center text-sm sm:text-base theme-text-70 font-['Instrument_Sans'] tracking-tight font-medium py-2 px-5 group-hover:theme-text-90 transition-all duration-300 theme-bg-05 rounded-full shadow-sm border border-transparent group-hover:theme-border">
+                          <span class="mr-2 flex items-center">
+                            <tag.icon className="text-lg" />
                           </span>
-                        );
-                      })}
+                          {tag.name}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -254,35 +210,21 @@ const sortedProjects = [...projects].sort((a, b) => {
     const modal = document.getElementById('redirect-modal');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalContent = modal?.querySelector('.max-w-md');
-    const cancelButton = document.getElementById('cancel-redirect');
-    const confirmButton = document.getElementById('confirm-redirect');
-    const redirectUrlElement = document.getElementById('redirect-url');
-    
+    const redirectUrlEl = document.getElementById('redirect-url');
     let currentUrl = '';
-    let currentTitle = '';
     
-    function showModal(title, url) {
+    function showModal(url) {
       currentUrl = url;
-      currentTitle = title;
-      
-      if (redirectUrlElement) {
-        redirectUrlElement.textContent = new URL(url).hostname;
-      }
+      if (redirectUrlEl) redirectUrlEl.textContent = new URL(url).hostname;
       
       if (modal) {
         modal.classList.remove('pointer-events-none');
-        
         setTimeout(() => {
           modal.classList.add('opacity-100');
-          if (modalOverlay) {
-            modalOverlay.classList.add('bg-opacity-60', 'backdrop-blur-sm');
-          }
-          if (modalContent) {
-            modalContent.classList.remove('scale-95', 'opacity-0');
-            modalContent.classList.add('scale-100', 'opacity-100');
-          }
+          modalOverlay?.classList.add('bg-opacity-60', 'backdrop-blur-sm');
+          modalContent?.classList.remove('scale-95', 'opacity-0');
+          modalContent?.classList.add('scale-100', 'opacity-100');
         }, 10);
-        
         document.body.style.overflow = 'hidden';
       }
     }
@@ -290,13 +232,9 @@ const sortedProjects = [...projects].sort((a, b) => {
     function hideModal() {
       if (modal) {
         modal.classList.remove('opacity-100');
-        if (modalOverlay) {
-          modalOverlay.classList.remove('bg-opacity-60', 'backdrop-blur-sm');
-        }
-        if (modalContent) {
-          modalContent.classList.remove('scale-100', 'opacity-100');
-          modalContent.classList.add('scale-95', 'opacity-0');
-        }
+        modalOverlay?.classList.remove('bg-opacity-60', 'backdrop-blur-sm');
+        modalContent?.classList.remove('scale-100', 'opacity-100');
+        modalContent?.classList.add('scale-95', 'opacity-0');
         
         setTimeout(() => {
           modal.classList.add('pointer-events-none');
@@ -305,41 +243,24 @@ const sortedProjects = [...projects].sort((a, b) => {
       }
     }
     
-    const projectLinks = document.querySelectorAll('[data-project-link]');
-    projectLinks.forEach(link => {
+    document.querySelectorAll('[data-project-link]').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        
         const url = link.getAttribute('data-project-url');
-        const title = link.getAttribute('data-project-title');
-        
-        if (url) {
-          showModal(title, url);
-        }
+        if (url) showModal(url);
       });
     });
     
-    if (cancelButton) {
-      cancelButton.addEventListener('click', hideModal);
-    }
-    
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', hideModal);
-    }
-    
-    if (confirmButton) {
-      confirmButton.addEventListener('click', () => {
-        if (currentUrl) {
-          window.open(currentUrl, '_blank');
-        }
-        hideModal();
-      });
-    }
+    document.getElementById('cancel-redirect')?.addEventListener('click', hideModal);
+    modalOverlay?.addEventListener('click', hideModal);
+    document.getElementById('confirm-redirect')?.addEventListener('click', () => {
+      if (currentUrl) window.open(currentUrl, '_blank');
+      hideModal();
+    });
     
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        hideModal();
-      }
+      if (e.key === 'Escape') hideModal();
     });
   });
 </script>
+
