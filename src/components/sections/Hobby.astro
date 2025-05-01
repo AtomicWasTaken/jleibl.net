@@ -1,0 +1,104 @@
+---
+import FadeIn from "../ui/FadeIn.astro";
+import { FaCamera, FaPhotoVideo } from "react-icons/fa";
+import { MdPhotoCamera, MdCameraAlt } from "react-icons/md";
+
+const cameras = [
+  { name: "Nikon D7200", icon: MdCameraAlt, description: "Dad's camera that got me hooked on photography" },
+  { name: "Nikon D3300", icon: MdCameraAlt, description: "My first personal camera where it all began" },
+  { name: "Sony A7 III", icon: MdPhotoCamera, description: "Current setup that's taken my shots to the next level" },
+];
+
+const genres = [
+  { name: "Portrait", icon: FaCamera, description: "Love capturing people's authentic expressions" },
+  { name: "Street", icon: FaCamera, description: "Finding beauty in everyday urban moments" },
+  { name: "Studio", icon: FaPhotoVideo, description: "Creating controlled lighting magic" },
+  { name: "Landscape", icon: FaPhotoVideo, description: "Chasing perfect light in nature" },
+];
+---
+
+<section id="hobby" class="py-24 sm:py-40 px-4 sm:px-8 relative">
+  <div class="absolute inset-0 theme-bg-gradient opacity-50"></div>
+  <div
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+  >
+  </div>
+
+  <div class="max-w-(--breakpoint-xl) mx-auto relative">
+    <FadeIn>
+      <div class="flex items-baseline gap-4 mb-12 sm:mb-24">
+        <h2
+          class="font-['DM_Sans'] text-3xl sm:text-5xl font-semibold tracking-tight theme-primary"
+        >
+          Hobby
+        </h2>
+        <div class="h-px grow theme-border opacity-60"></div>
+      </div>
+    </FadeIn>
+
+    <div class="grid gap-12 sm:gap-16">
+      <FadeIn delay={0.2}>
+        <div class="space-y-10 sm:space-y-16 font-['Instrument_Sans']">
+          <div class="space-y-6 sm:space-y-8">
+            <p class="text-xl sm:text-2xl theme-text-90 leading-relaxed">
+              When I'm not coding, you'll find me with a camera in hand, hunting for that perfect shot that tells a story without words.
+            </p>
+            <p class="text-base sm:text-xl theme-text-70 leading-relaxed">
+              It all started with borrowing my dad's Nikon D7200 – I was instantly hooked. Eventually got my own Nikon D3300 to learn the basics. These days, I'm having a blast with my Sony A7 III, experimenting with different styles and techniques across various photography genres.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16">
+            <div class="space-y-6 sm:space-y-8">
+              <div class="flex items-baseline gap-4">
+                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium">
+                  Camera Evolution
+                </h3>
+                <div class="h-px grow theme-border opacity-30"></div>
+              </div>
+              <ul class="space-y-4 sm:space-y-5">
+                {
+                  cameras.map((camera) => (
+                    <li class="text-base sm:text-lg group flex flex-col gap-1 theme-text-70 hover:theme-text-90 cursor-default theme-bg-05 px-4 py-3 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
+                      <div class="flex items-center gap-3">
+                        <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-all">
+                          <camera.icon className="w-5 h-5" />
+                        </span>
+                        {camera.name}
+                      </div>
+                      <p class="text-sm theme-text-50 pl-9">{camera.description}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div class="space-y-6 sm:space-y-8">
+              <div class="flex items-baseline gap-4">
+                <h3 class="text-sm sm:text-base theme-text-40 uppercase tracking-wider font-medium">
+                  Favorite Genres
+                </h3>
+                <div class="h-px grow theme-border opacity-30"></div>
+              </div>
+              <ul class="space-y-4 sm:space-y-5">
+                {
+                  genres.map((genre) => (
+                    <li class="text-base sm:text-lg group flex flex-col gap-1 theme-text-70 hover:theme-text-90 cursor-default theme-bg-05 px-4 py-3 rounded-xl shadow-sm hover:shadow-md border border-transparent hover:theme-border transition-all duration-300">
+                      <div class="flex items-center gap-3">
+                        <span class="theme-text-40 group-hover:theme-text-90 flex items-center justify-center w-6 h-6 transition-all">
+                          <genre.icon className="w-5 h-5" />
+                        </span>
+                        {genre.name}
+                      </div>
+                      <p class="text-sm theme-text-50 pl-9">{genre.description}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>

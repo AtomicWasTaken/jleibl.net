@@ -1,24 +1,24 @@
 ---
 import FadeIn from "../ui/FadeIn.astro";
 import { Icon } from "astro-icon/components";
-import { SiPhp, SiJavascript, SiMysql, SiReact } from "react-icons/si";
-import { FaGithub, FaLinkedin, FaGlobe, FaPalette } from "react-icons/fa";
+import { SiPhp, SiJavascript, SiMysql, SiReact, SiTypescript, SiAstro } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaGlobe, FaPalette, FaCamera } from "react-icons/fa";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { IoServerOutline } from "react-icons/io5";
 import { Image } from "astro:assets";
 
 const technologies = [
-  { name: "PHP", icon: SiPhp },
-  { name: "JavaScript", icon: SiJavascript },
-  { name: "MySQL", icon: SiMysql },
+  { name: "TypeScript", icon: SiTypescript },
   { name: "React", icon: SiReact },
+  { name: "PHP", icon: SiPhp },
+  { name: "Astro", icon: SiAstro },
 ];
 
 const interests = [
   { name: "Web Development", icon: FaGlobe },
   { name: "System Architecture", icon: IoServerOutline },
   { name: "UI/UX Design", icon: FaPalette },
-  { name: "Performance Optimization", icon: BsLightningChargeFill },
+  { name: "Creative Vision", icon: FaCamera },
 ];
 ---
 
@@ -66,7 +66,9 @@ const interests = [
               Jan-Marlon Leibl
             </h3>
             <p class="font-['Instrument_Sans'] theme-text-70 text-base sm:text-lg">
-              Fullstack Developer
+              Fullstack Web Developer
+              <br>
+              Photographer Hobbyist
             </p>
           </div>
         </FadeIn>
@@ -76,13 +78,13 @@ const interests = [
         <div class="space-y-10 sm:space-y-16 font-['Instrument_Sans']">
           <div class="space-y-6 sm:space-y-8">
             <p class="text-xl sm:text-2xl theme-text-90 leading-relaxed">
-              Hello! I'm Jan-Marlon, but please call me Jan. I started my journey in programming at
-              the age of 11 with C#, fascinated by a desktop application my friend created.
+              Hey there! I'm Jan-Marlon, but everyone calls me Jan. My coding journey kicked off at age 11 with C#, after being amazed by a simple app my friend built.
             </p>
             <p class="text-base sm:text-xl theme-text-70 leading-relaxed">
-              Today, I specialize in PHP and TypeScript development, constantly pushing the
-              boundaries of what's possible on the web. My journey has led me from creating simple
-              applications to developing complex systems used by thousands.
+              These days, I work with PHP and TypeScript to build cool stuff on the web. I've grown from tinkering with basic projects to crafting robust systems that thousands of people use daily.
+            </p>
+            <p class="text-base sm:text-xl theme-text-70 leading-relaxed">
+              I bring the same eye for detail to my code that I do to my photography. There's something magical about creating something both functional and beautiful, whether it's a web app or a perfect shot.
             </p>
           </div>
 
