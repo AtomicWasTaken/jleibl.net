@@ -4,4 +4,7 @@ User-agent: *
 Allow: /
 
 # Optimize crawling
-Crawl-delay: 10 
+Crawl-delay: 10
+
+# Sitemaps
+Sitemap: https://jleibl.net/sitemap-index.xml

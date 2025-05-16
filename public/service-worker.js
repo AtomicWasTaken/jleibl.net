@@ -1,21 +1,33 @@
-const CACHE_NAME = "jleibl-portfolio-v1";
-
-const PRECACHE_ASSETS = ["/", "/index.html"];
-
-const AUTH_ASSETS = ["/manifest.json"];
-
-const STYLE_ASSETS = ["/styles/global.css", "/styles/theme.css"];
-
-const IMAGE_ASSETS = ["/images/profile-image-futu-style.jpg"];
-
-const ALL_ASSETS = [...PRECACHE_ASSETS, ...AUTH_ASSETS, ...STYLE_ASSETS, ...IMAGE_ASSETS];
+const CACHE_NAME = "jleibl-cache-v1";
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/profile-image-futu-style.jpg",
+  "/styles/global.css",
+  "/styles/theme.css",
+];
 
 self.addEventListener("install", (event) => {
-  self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
-      return cache.addAll(PRECACHE_ASSETS);
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)));
+});
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request).then((response) => {
+        if (!response || response.status !== 200 || response.type !== "basic") {
+          return response;
+        }
+        const responseToCache = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+        return response;
+      });
     })
   );
 });
