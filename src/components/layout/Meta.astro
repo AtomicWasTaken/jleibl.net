@@ -2,7 +2,7 @@
 const defaultTitle = "Jan-Marlon Leibl • Fullstack Software Developer | PHP & TypeScript Expert";
 const defaultDescription =
   "Experienced Fullstack Developer specializing in PHP and TypeScript. Creating high-performance web applications and digital experiences with modern technologies.";
-const defaultImage = "/images/profile-image-futu-style.jpg";
+const defaultImage = "/profile-image-futu-style.jpg";
 const siteUrl = "https://jleibl.net";
 
 interface Props {
@@ -37,20 +37,24 @@ const {
   ],
 } = Astro.props;
 
-const structuredDataPerson = {
-  "@context": "https://schema.org",
+const personData = {
   "@type": "Person",
   name: "Jan-Marlon Leibl",
   url: siteUrl,
-  image: `${siteUrl}${image}`,
+  image: `${siteUrl}${defaultImage}`,
   jobTitle: "Fullstack Software Developer",
+  description: "Fullstack Software Developer specializing in PHP and TypeScript",
+  sameAs: ["https://github.com/AtomicWasTaken", "https://www.linkedin.com/in/janmarlonleibl/"],
+  knowsAbout: ["PHP", "TypeScript", "Web Development", "System Architecture", "Database Design"],
   worksFor: {
     "@type": "Organization",
     name: "team neusta",
   },
-  description: "Fullstack Software Developer specializing in PHP and TypeScript",
-  sameAs: ["https://github.com/AtomicWasTaken", "https://www.linkedin.com/in/janmarlonleibl/"],
-  knowsAbout: ["PHP", "TypeScript", "Web Development", "System Architecture", "Database Design"],
+};
+
+const structuredDataPerson = {
+  "@context": "https://schema.org",
+  ...personData,
 };
 
 const structuredDataWebsite = {
@@ -60,11 +64,7 @@ const structuredDataWebsite = {
   description: description,
   image: `${siteUrl}${image}`,
   url: canonicalUrl,
-  author: {
-    "@type": "Person",
-    name: "Jan-Marlon Leibl",
-    url: siteUrl,
-  },
+  author: personData,
   ...(publishedDate && { datePublished: publishedDate }),
   ...(modifiedDate && { dateModified: modifiedDate }),
 };
@@ -88,11 +88,17 @@ const structuredDataWebsite = {
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={`${siteUrl}${image}`} />
+<meta property="og:image" content="/profile-image-futu-style.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
 <meta property="og:site_name" content="Jan-Marlon Leibl" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="/profile-image-futu-style.jpg" />
+<meta name="twitter:image:alt" content="Jan-Marlon Leibl - Fullstack Software Developer" />
 
 <link rel="icon" href="/profile-image-futu-style.jpg" sizes="any" />
 <link rel="icon" href="/profile-image-futu-style.jpg" type="image/svg+xml" />
